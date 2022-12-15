@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url', 'response');
+$autoload['helper'] = array('url', 'response', 'curl', 'dbconfig');
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('m_crud');
+$autoload['model'] = array('M_crud', 'M_curl'); //harus sesuai nama class

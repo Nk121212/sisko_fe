@@ -11,8 +11,22 @@ class SEKOLAH_Controller extends CI_Controller {
         // $CI->load->model('auth_model');
         // $CI->load->model('api_model');
         // $CI->load->library('user_agent');
+        $class = $CI->router->fetch_class();
+        $method = $CI->router->fetch_method();
 
+        //echo $class;
+        //echo $method;
 
+        //print_r($CI->session->userdata());
+        //echo $this->session->userdata('login');
+        if($this->session->userdata('login') && strtolower($class) == "auth" && strtolower($method) == 'login_page'){
+            redirect("dashboard");
+        }else{
+            //redirect("");
+            if(!$this->session->userdata('login') && strtolower($class) !== "auth"){
+                redirect("logout");
+            }
+        }
 
 
     }

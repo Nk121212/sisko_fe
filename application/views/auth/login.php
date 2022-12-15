@@ -33,7 +33,10 @@
                     <img src="<?=base_url()?>assets/images/img-01.png" alt="IMG">
                 </div>
 
-                <form class="login100-form validate-form">
+                <form class="login100-form validate-form" method="POST" action="<?=base_url()?>login/action">
+                    
+                    <?=$this->session->flashdata('notif')?>
+
                     <span class="login100-form-title">
                         Member Login
                     </span>
