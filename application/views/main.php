@@ -34,6 +34,8 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="<?=base_url()?>assets/themes/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="<?=base_url()?>bootstrap-4/css/bootstrap.min.css">
     <!-- Vendors styles-->
     <link rel="stylesheet" href="<?=base_url()?>assets/themes/vendors/simplebar/css/simplebar.css">
     <link rel="stylesheet" href="<?=base_url()?>assets/themes/css/vendors/simplebar.css">
@@ -57,6 +59,16 @@
       gtag('config', 'UA-118965717-5');
     </script>
     <link href="<?=base_url()?>assets/themes/vendors/@coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet">
+
+    <style>
+      .img_round{
+        border-radius: 50%;
+      }
+      .pointer{
+        cursor:pointer;
+      }
+    </style>
+
   </head>
   <body>
     <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
@@ -72,9 +84,11 @@
         <li class="nav-item"><a class="nav-link" href="index.html">
             <svg class="nav-icon">
               <use xlink:href="<?=base_url()?>assets/themes/vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
-            </svg> Dashboard<span class="badge badge-sm bg-info ms-auto">NEW</span></a></li>
-        <li class="nav-title">Theme</li>
-        <li class="nav-item"><a class="nav-link" href="colors.html">
+            </svg> Dashboard
+            <!-- <span class="badge badge-sm bg-info ms-auto">NEW</span> -->
+          </a></li>
+        <!-- li class="nav-title">Theme</li>
+        <<li class="nav-item"><a class="nav-link" href="colors.html">
             <svg class="nav-icon">
               <use xlink:href="<?=base_url()?>assets/themes/vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
             </svg> Colors</a></li>
@@ -193,7 +207,7 @@
               <use xlink:href="<?=base_url()?>assets/themes/vendors/@coreui/icons/svg/free.svg#cil-layers"></use>
             </svg> Try CoreUI
             <div class="fw-semibold">PRO</div>
-          </a></li>
+          </a></li> -->
       </ul>
       <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
     </div>
@@ -324,11 +338,28 @@
     <script src="<?=base_url()?>assets/themes/vendors/@coreui/coreui/js/coreui.bundle.min.js"></script>
     <script src="<?=base_url()?>assets/themes/vendors/simplebar/js/simplebar.min.js"></script>
     <!-- Plugins and scripts required by this view-->
-    <script src="<?=base_url()?>assets/themes/vendors/chart.js/js/chart.min.js"></script>
+    <!-- <script src="<?=base_url()?>assets/themes/vendors/chart.js/js/chart.min.js"></script> -->
     <script src="<?=base_url()?>assets/themes/vendors/@coreui/chartjs/js/coreui-chartjs.js"></script>
     <script src="<?=base_url()?>assets/themes/vendors/@coreui/utils/js/coreui-utils.js"></script>
-    <script src="<?=base_url()?>assets/themes/js/main.js"></script>
+    <!-- <script src="<?=base_url()?>assets/themes/js/main.js"></script> -->
+    <script src="<?=base_url()?>assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="<?=base_url()?>bootstrap-4/js/bootstrap.min.js"></script>
+
     <script>
+    </script>
+    <script>
+      $('#modalAbsen').on('shown.bs.modal', function (e) {
+        //$('#myInput').trigger('focus')
+           var target = $(e.relatedTarget);
+           var link = target.attr("id");
+           //alert(link);
+          //console.log($(e.relatedTarget));
+      });
+
+      // $('.anak').click(function(){
+      //     //alert('ahay');
+      //     $('#modalAbsen').modal('show');
+      // })
     </script>
 
   </body>

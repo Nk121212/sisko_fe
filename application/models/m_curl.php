@@ -17,6 +17,13 @@
             return json_decode($res, true);
         }
 
+        public function getMuridByUserLoggedIn(){
+            
+            $res = cURL(getConfig('api_url').'getmurid?id_user='.$this->session->userdata('id'));
+            //return $res;
+            return json_decode($res, true);
+        }
+
     }
 
 ?>

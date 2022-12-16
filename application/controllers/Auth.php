@@ -24,7 +24,9 @@ class Auth extends SEKOLAH_Controller {
 
 			$this->session->set_userdata(
 				array(
-					'login' => true
+					'login' => true,
+					'id' => $resp['data']['id_user'],
+					'username' => $resp['data']['username']
 				)
 			);
 
@@ -33,7 +35,7 @@ class Auth extends SEKOLAH_Controller {
 		}else{
 
 			$this->session->set_flashdata(
-				array('notif' => '<div class="alert alert-danger" role="alert">This is a danger alert—check it out!</div>')
+				array('notif' => '<div class="alert alert-danger" role="alert">Username / Password Salah!</div>')
 			);
 			
 			redirect("");
