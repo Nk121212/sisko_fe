@@ -24,6 +24,20 @@
             return json_decode($res, true);
         }
 
+        public function getAllOpsi(){
+            
+            $res = cURL(getConfig('api_url').'getOpsi');
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function getNilaiByNik($nik, $offset, $limit, $orderBy="", $orderType=""){
+            
+            $res = cURL(getConfig('api_url').'getNilaiByNik?nik='.$nik.'&offset='.$offset.'&limit='.$limit.'&order_by='.$orderBy.'&order_type='.$orderType);
+            //return $res;
+            return json_decode($res, true);
+        }
+
     }
 
 ?>

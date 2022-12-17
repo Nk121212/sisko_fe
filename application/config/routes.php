@@ -59,3 +59,5 @@ $route['register'] = 'auth/register_page';
 $route['login/action'] = 'auth/login';
 $route['logout'] = 'auth/logout';
 $route['dashboard'] = 'home/dashboard';
+
+$route['getNilaiByNik'] = 'table_json/get_nilai_by_nik';

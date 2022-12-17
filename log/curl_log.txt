@@ -1,23 +1,20 @@
 *   Trying ::1:80...
 * Connected to localhost (::1) port 80 (#0)
-> POST /sekolah_be/login HTTP/1.1
+> GET /sekolah_be/getNilaiByNik?nik=123&offset=0&limit=10&order_by=&order_type= HTTP/1.1
 Host: localhost
 Accept: */*
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36
-Content-Length: 248
-Content-Type: multipart/form-data; boundary=------------------------8f23424fab99eede
 
-* We are completely uploaded and fine
 * Mark bundle as not supporting multiuse
 < HTTP/1.1 200 OK
-< Date: Thu, 15 Dec 2022 15:58:27 GMT
+< Date: Sat, 17 Dec 2022 08:39:24 GMT
 < Server: Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33
 < X-Powered-By: PHP/7.4.33
-< Set-Cookie: ci_session=8eq7sek4i5jma8br7smcr08tbfkbn7g9; expires=Thu, 15-Dec-2022 17:58:27 GMT; Max-Age=7200; path=/; HttpOnly; SameSite=Lax
+< Set-Cookie: ci_session=por2n4i43hv750fbqncb8bhi71oqvr6m; expires=Sat, 17-Dec-2022 10:39:24 GMT; Max-Age=7200; path=/; HttpOnly; SameSite=Lax
 < Expires: Thu, 19 Nov 1981 08:52:00 GMT
 < Cache-Control: no-store, no-cache, must-revalidate
 < Pragma: no-cache
-< Content-Length: 81
+< Content-Length: 628
 < Content-Type: application/json
 < 
 * Connection #0 to host localhost left intact

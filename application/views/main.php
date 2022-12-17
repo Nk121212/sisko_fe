@@ -17,7 +17,7 @@
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
     <title><?=$title?></title>
-    <link rel="apple-touch-icon" sizes="57x57" href="<?=base_url()?>assets/themes/favicon/apple-icon-57x57.png">
+    <!-- <link rel="apple-touch-icon" sizes="57x57" href="<?=base_url()?>assets/themes/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="<?=base_url()?>assets/themes/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="<?=base_url()?>assets/themes/favicon/apple-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="76x76" href="<?=base_url()?>assets/themes/favicon/apple-icon-76x76.png">
@@ -33,20 +33,21 @@
     <link rel="manifest" href="<?=base_url()?>assets/themes/favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="<?=base_url()?>assets/themes/favicon/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#ffffff"> -->
 
     <link rel="stylesheet" href="<?=base_url()?>bootstrap-4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?=base_url()?>assets/css/datatables.min.css">
     <!-- Vendors styles-->
     <link rel="stylesheet" href="<?=base_url()?>assets/themes/vendors/simplebar/css/simplebar.css">
     <link rel="stylesheet" href="<?=base_url()?>assets/themes/css/vendors/simplebar.css">
     <!-- Main styles for this application-->
     <link href="<?=base_url()?>assets/themes/css/style.css" rel="stylesheet">
     <!-- We use those styles to show code examples, you should remove them in your application.-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css">
-    <link href="<?=base_url()?>assets/themes/css/examples.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css"> -->
+    <!-- <link href="<?=base_url()?>assets/themes/css/examples.css" rel="stylesheet"> -->
     <!-- Global site tag (gtag.js) - Google Analytics-->
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
-    <script>
+    <!-- <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script> -->
+    <!-- <script>
       window.dataLayer = window.dataLayer || [];
 
       function gtag() {
@@ -57,8 +58,8 @@
       gtag('config', 'UA-118965717-3');
       // Bootstrap ID
       gtag('config', 'UA-118965717-5');
-    </script>
-    <link href="<?=base_url()?>assets/themes/vendors/@coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet">
+    </script> -->
+    <!-- <link href="<?=base_url()?>assets/themes/vendors/@coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet"> -->
 
     <style>
       .img_round{
@@ -300,7 +301,7 @@
                 </a>
                 <a class="dropdown-item" href="<?=base_url()?>logout">
                   <svg class="icon me-2">
-                    <use xlink:href="<?=base_url()?>assets/vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
+                    <use xlink:href="<?=base_url()?>assets/themes/vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
                   </svg> Logout</a>
               </div>
             </li>
@@ -318,6 +319,19 @@
           </nav>
         </div>
       </header>
+
+      <script src="<?=base_url()?>assets/themes/vendors/@coreui/coreui/js/coreui.bundle.min.js"></script>
+      <script src="<?=base_url()?>assets/themes/vendors/simplebar/js/simplebar.min.js"></script>
+      <!-- Plugins and scripts required by this view-->
+      <!-- <script src="<?=base_url()?>assets/themes/vendors/chart.js/js/chart.min.js"></script> -->
+      <!-- <script src="<?=base_url()?>assets/themes/vendors/@coreui/chartjs/js/coreui-chartjs.js"></script> -->
+      <script src="<?=base_url()?>assets/themes/vendors/@coreui/utils/js/coreui-utils.js"></script>
+      <!-- <script src="<?=base_url()?>assets/themes/js/main.js"></script> -->
+      <script src="<?=base_url()?>assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+      <script src="<?=base_url()?>assets/js/datatables.min.js"></script>
+
+      <script src="<?=base_url()?>bootstrap-4/js/bootstrap.min.js"></script>
+      
       <div class="body flex-grow-1 px-3">
         <div class="container-lg">
           
@@ -335,32 +349,7 @@
       </footer> -->
     </div>
     <!-- CoreUI and necessary plugins-->
-    <script src="<?=base_url()?>assets/themes/vendors/@coreui/coreui/js/coreui.bundle.min.js"></script>
-    <script src="<?=base_url()?>assets/themes/vendors/simplebar/js/simplebar.min.js"></script>
-    <!-- Plugins and scripts required by this view-->
-    <!-- <script src="<?=base_url()?>assets/themes/vendors/chart.js/js/chart.min.js"></script> -->
-    <script src="<?=base_url()?>assets/themes/vendors/@coreui/chartjs/js/coreui-chartjs.js"></script>
-    <script src="<?=base_url()?>assets/themes/vendors/@coreui/utils/js/coreui-utils.js"></script>
-    <!-- <script src="<?=base_url()?>assets/themes/js/main.js"></script> -->
-    <script src="<?=base_url()?>assets/vendor/jquery/jquery-3.2.1.min.js"></script>
-    <script src="<?=base_url()?>bootstrap-4/js/bootstrap.min.js"></script>
-
-    <script>
-    </script>
-    <script>
-      $('#modalAbsen').on('shown.bs.modal', function (e) {
-        //$('#myInput').trigger('focus')
-           var target = $(e.relatedTarget);
-           var link = target.attr("id");
-           //alert(link);
-          //console.log($(e.relatedTarget));
-      });
-
-      // $('.anak').click(function(){
-      //     //alert('ahay');
-      //     $('#modalAbsen').modal('show');
-      // })
-    </script>
+    
 
   </body>
 </html>
