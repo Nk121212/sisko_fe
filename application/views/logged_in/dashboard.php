@@ -16,14 +16,15 @@
                 
                 <div class="row text-center">
                     <h5>List Anak</h5>
-                    <hr>
+                    <div class="col-12"><hr></div>
+                    
                     <?php foreach($data_murid as $key=>$value): ?>
                         <div class="col-<?=$div?>">
                             <img class="img_round pointer anak" data-toggle="modal" data-target="#modalDashboard" src="<?=$value['image']?>" alt="" id="<?=$value['nik']?>">
                             <p><b><?=$value['nama']?></b></p>
                         </div>
                     <?php endforeach; ?>
-                    <hr>
+                    <div class="col-12"><hr></div>
                 </div>
 
             </div>

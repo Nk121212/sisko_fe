@@ -36,8 +36,8 @@ class Table_json extends SEKOLAH_Controller {
             //'limit' => $this->limit,
             'real_resp' => $resp,
             'postData' => $this->input->post(),
-            'recordsTotal'=>count($resp['data']),
-            'recordsFiltered'=>count($resp['data']),
+            'recordsTotal'=> $resp['total_record'],
+            'recordsFiltered'=> $resp['total_record'],
             'data'=>array()
         );
         

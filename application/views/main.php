@@ -35,8 +35,9 @@
     <meta name="msapplication-TileImage" content="<?=base_url()?>assets/themes/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff"> -->
 
-    <link rel="stylesheet" href="<?=base_url()?>bootstrap-4/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?=base_url()?>assets/css/datatables.min.css">
+    <link rel="stylesheet" href="<?=base_url()?>bootstrap-4/css/bootstrap.min.css">
+    
     <!-- Vendors styles-->
     <link rel="stylesheet" href="<?=base_url()?>assets/themes/vendors/simplebar/css/simplebar.css">
     <link rel="stylesheet" href="<?=base_url()?>assets/themes/css/vendors/simplebar.css">
@@ -82,34 +83,39 @@
         </svg>
       </div>
       <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
-        <li class="nav-item"><a class="nav-link" href="index.html">
+        <li class="nav-item"><a class="nav-link" href="<?=base_url()?>dashboard">
             <svg class="nav-icon">
               <use xlink:href="<?=base_url()?>assets/themes/vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
             </svg> Dashboard
             <!-- <span class="badge badge-sm bg-info ms-auto">NEW</span> -->
           </a></li>
-        <!-- li class="nav-title">Theme</li>
-        <<li class="nav-item"><a class="nav-link" href="colors.html">
+        <!-- <li class="nav-title">Theme</li>
+        <li class="nav-item"><a class="nav-link" href="colors.html">
             <svg class="nav-icon">
               <use xlink:href="<?=base_url()?>assets/themes/vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
             </svg> Colors</a></li>
-        <li class="nav-item"><a class="nav-link" href="typography.html">
+        <li class="nav-item">
+          <a class="nav-link" href="typography.html">
             <svg class="nav-icon">
               <use xlink:href="<?=base_url()?>assets/themes/vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
-            </svg> Typography</a></li>
-        <li class="nav-title">Components</li>
-        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+            </svg> Typography
+          </a>
+        </li> -->
+        <li class="nav-title">Menu</li>
+        <li class="nav-group">
+          <a class="nav-link nav-group-toggle" href="#">
             <svg class="nav-icon">
-              <use xlink:href="<?=base_url()?>assets/themes/vendors/@coreui/icons/svg/free.svg#cil-puzzle"></use>
-            </svg> Base</a>
+              <use xlink:href="<?=base_url()?>assets/themes/vendors/@coreui/icons/svg/free.svg#cil-bank"></use>
+            </svg> Master
+          </a>
           <ul class="nav-group-items">
-            <li class="nav-item"><a class="nav-link" href="base/accordion.html"><span class="nav-icon"></span> Accordion</a></li>
-            <li class="nav-item"><a class="nav-link" href="base/breadcrumb.html"><span class="nav-icon"></span> Breadcrumb</a></li>
-            <li class="nav-item"><a class="nav-link" href="base/cards.html"><span class="nav-icon"></span> Cards</a></li>
-            <li class="nav-item"><a class="nav-link" href="base/carousel.html"><span class="nav-icon"></span> Carousel</a></li>
-            <li class="nav-item"><a class="nav-link" href="base/collapse.html"><span class="nav-icon"></span> Collapse</a></li>
-            <li class="nav-item"><a class="nav-link" href="base/list-group.html"><span class="nav-icon"></span> List group</a></li>
-            <li class="nav-item"><a class="nav-link" href="base/navs-tabs.html"><span class="nav-icon"></span> Navs &amp; Tabs</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?=base_url()?>guru/page"><span class="nav-icon"></span> Guru</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?=base_url()?>jenis_nilai/page"><span class="nav-icon"></span> Jenis Nilai</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?=base_url()?>murid/page"><span class="nav-icon"></span> Murid</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?=base_url()?>opsi/page"><span class="nav-icon"></span> Opsi</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?=base_url()?>pelajaran/page"><span class="nav-icon"></span> Pelajaran</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?=base_url()?>users/page"><span class="nav-icon"></span> User</a></li>
+            <!-- <li class="nav-item"><a class="nav-link" href="base/navs-tabs.html"><span class="nav-icon"></span> Navs &amp; Tabs</a></li>
             <li class="nav-item"><a class="nav-link" href="base/pagination.html"><span class="nav-icon"></span> Pagination</a></li>
             <li class="nav-item"><a class="nav-link" href="base/placeholders.html"><span class="nav-icon"></span> Placeholders</a></li>
             <li class="nav-item"><a class="nav-link" href="base/popovers.html"><span class="nav-icon"></span> Popovers</a></li>
@@ -117,10 +123,10 @@
             <li class="nav-item"><a class="nav-link" href="base/scrollspy.html"><span class="nav-icon"></span> Scrollspy</a></li>
             <li class="nav-item"><a class="nav-link" href="base/spinners.html"><span class="nav-icon"></span> Spinners</a></li>
             <li class="nav-item"><a class="nav-link" href="base/tables.html"><span class="nav-icon"></span> Tables</a></li>
-            <li class="nav-item"><a class="nav-link" href="base/tooltips.html"><span class="nav-icon"></span> Tooltips</a></li>
+            <li class="nav-item"><a class="nav-link" href="base/tooltips.html"><span class="nav-icon"></span> Tooltips</a></li> -->
           </ul>
         </li>
-        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+        <!--li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
             <svg class="nav-icon">
               <use xlink:href="<?=base_url()?>assets/themes/vendors/@coreui/icons/svg/free.svg#cil-cursor"></use>
             </svg> Buttons</a>
@@ -312,9 +318,13 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb my-0 ms-2">
               <li class="breadcrumb-item">
-                <!-- if breadcrumb is single--><span>Home</span>
+                <!-- if breadcrumb is single--><span><?=$breadcrumb_1?></span>
               </li>
-              <li class="breadcrumb-item active"><span>Dashboard</span></li>
+              <li class="breadcrumb-item <?=($breadcrumb_3 == "" ? "active" : "")?>"><span><?=$breadcrumb_2?></span></li>
+              <?php if($breadcrumb_3 !== ""): ?>
+                  <li class="breadcrumb-item active"><span><?=$breadcrumb_3?></span></li>
+              <?php endif; ?>
+              
             </ol>
           </nav>
         </div>

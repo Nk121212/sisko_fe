@@ -15,6 +15,9 @@ class Home extends SEKOLAH_Controller {
         $data = array(
             'page' => 'logged_in/dashboard',
             'title' => 'Dashboard',
+            'breadcrumb_1' => "Home",
+            'breadcrumb_2' => "Dashboard",
+            'breadcrumb_3' => "",
             'data_murid' => $get_murid_by_user_logged_in['data'],
             'div' => $splitDivUsed,
             'opsi' => $getOpsi['data']
