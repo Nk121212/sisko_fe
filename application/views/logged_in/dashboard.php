@@ -20,7 +20,7 @@
                     
                     <?php foreach($data_murid as $key=>$value): ?>
                         <div class="col-<?=$div?>">
-                            <img class="img-fluid img_round pointer anak" data-toggle="modal" data-target="#modalDashboard" src="<?=$value['image']?>" alt="<?=base_url()?>upload/Image_not_available.png" id="<?=$value['nik']?>">
+                            <img class="img-fluid img_round pointer anak" data-toggle="modal" data-target="#modalDashboard" src="<?=$value['image']?>" onerror="this.onerror=null; this.src='<?=base_url()?>upload/Image_not_available.png'" alt="" id="<?=$value['nik']?>">
                             <p><b><?=$value['nama']?></b></p>
                         </div>
                     <?php endforeach; ?>
