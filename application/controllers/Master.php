@@ -55,13 +55,13 @@ class Master extends SEKOLAH_Controller {
         $this->load->view("main", $data);
     }
 
-    public function opsi_page(){
+    public function option_page(){
 
         $data = array(
-            'page' => 'logged_in/master/opsi',
-            'title' => 'Master Opsi',
+            'page' => 'logged_in/master/option',
+            'title' => 'Master Option',
             'breadcrumb_1' => "Master",
-            'breadcrumb_2' => "Opsi",
+            'breadcrumb_2' => "Option",
             'breadcrumb_3' => ""
         );
 

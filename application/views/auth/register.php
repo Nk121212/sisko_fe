@@ -70,7 +70,7 @@
                     </div-->
 
                     <div class="text-center p-t-136">
-                        <a class="txt2" href="<?=base_url()?>login">
+                        <a class="txt2" href="<?=base_url()?>">
                             Already have an account ?
                             <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                         </a>

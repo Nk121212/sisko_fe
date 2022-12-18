@@ -112,7 +112,7 @@
             <li class="nav-item"><a class="nav-link" href="<?=base_url()?>guru/page"><span class="nav-icon"></span> Guru</a></li>
             <li class="nav-item"><a class="nav-link" href="<?=base_url()?>jenis_nilai/page"><span class="nav-icon"></span> Jenis Nilai</a></li>
             <li class="nav-item"><a class="nav-link" href="<?=base_url()?>murid/page"><span class="nav-icon"></span> Murid</a></li>
-            <li class="nav-item"><a class="nav-link" href="<?=base_url()?>opsi/page"><span class="nav-icon"></span> Opsi</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?=base_url()?>option/page"><span class="nav-icon"></span> Option</a></li>
             <li class="nav-item"><a class="nav-link" href="<?=base_url()?>pelajaran/page"><span class="nav-icon"></span> Pelajaran</a></li>
             <li class="nav-item"><a class="nav-link" href="<?=base_url()?>users/page"><span class="nav-icon"></span> User</a></li>
             <!-- <li class="nav-item"><a class="nav-link" href="base/navs-tabs.html"><span class="nav-icon"></span> Navs &amp; Tabs</a></li>

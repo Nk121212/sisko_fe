@@ -64,7 +64,7 @@ $route['users/page'] = 'master/users_page';
 $route['guru/page'] = 'master/guru_page';
 $route['jenis_nilai/page'] = 'master/jnilai_page';
 $route['murid/page'] = 'master/murid_page';
-$route['opsi/page'] = 'master/opsi_page';
+$route['option/page'] = 'master/option_page';
 $route['pelajaran/page'] = 'master/pelajaran_page';
 
 $route['getNilaiByNik'] = 'table_json/get_nilai_by_nik';
