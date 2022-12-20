@@ -80,4 +80,47 @@ class Master extends SEKOLAH_Controller {
 
         $this->load->view("main", $data);
     }
+
+    public function add_guru(){
+
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->addGuru($this->input->post());
+
+        echo json_encode($resp);
+    }
+
+    public function get_guru_by_nip(){
+
+        //print_r($this->input->post());
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->getGuruByNip($this->input->post('nip'));
+
+        echo json_encode($resp);
+
+    }
+
+    public function update_guru_by_nip(){
+        //print_r($this->input->post());
+        header('Content-Type: application/json');
+
+        $nip = $this->input->post('nip');
+        unset($_POST['nip']);
+
+        $resp = $this->M_curl->updateGuruByNip($nip, $this->input->post());
+
+        echo json_encode($resp);
+    }
+
+    public function delete_guru_by_nip(){
+        //print_r($this->input->post());
+        header('Content-Type: application/json');
+
+        $nip = $this->input->post('nip');
+
+        $resp = $this->M_curl->deleteGuruByNip($nip);
+
+        echo json_encode($resp);
+    }
 }

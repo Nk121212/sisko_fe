@@ -57,4 +57,41 @@ class Table_json extends SEKOLAH_Controller {
 
         echo json_encode($data, JSON_PRETTY_PRINT);
     }
+
+    public function get_guru_all(){
+
+        $start = $this->input->post('start') ? $this->input->post('start') : 0;
+
+        $resp = $this->M_curl->getGuruAll($start, $this->limit);
+
+        $data = array(
+            //'limit' => $this->limit,
+            'real_resp' => $resp,
+            'postData' => $this->input->post(),
+            'recordsTotal'=> $resp['total_record'],
+            'recordsFiltered'=> $resp['total_record'],
+            'data'=>array()
+        );
+        
+        $i=1+(integer)$this->input->post('start');
+
+        foreach($resp['data'] as $res){
+
+            $data['data'][] = array(
+                'no' => $i,
+                'nip'=> $res['nip'],
+                'nama_guru'=> $res['nama_guru'],
+                'alamat' => $res['alamat'],
+                'no_telepon' => $res['no_telepon'],
+                'action' => '
+                    <a class="btn btn-warning edit" data-nip="'.$res['nip'].'"><i class="fas fa-edit"></i></a>
+                    <a class="btn btn-danger delete" data-nip="'.$res['nip'].'"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                '
+            );
+            
+            $i++;
+        }
+
+        echo json_encode($data, JSON_PRETTY_PRINT);
+    }
 }

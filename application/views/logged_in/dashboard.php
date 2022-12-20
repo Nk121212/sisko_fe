@@ -1,3 +1,5 @@
+<link href="<?=base_url()?>plugins/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 <style>
     div.NILAI{
         display:none!important;
@@ -9,93 +11,105 @@
         display: inline-block!important;
     }
 </style>
-<div class="col-12">
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+Launch demo modal
+</button> -->
 
-    <div class="card" style="width: 100%;">
-            <div class="card-body">
-                
-                <div class="row text-center">
-                    <h5>List Anak</h5>
-                    <div class="col-12"><hr></div>
-                    
-                    <?php foreach($data_murid as $key=>$value): ?>
-                        <div class="col-<?=$div?>">
-                            <img class="img-fluid img_round pointer anak" data-toggle="modal" data-target="#modalDashboard" src="<?=$value['image']?>" onerror="this.onerror=null; this.src='<?=base_url()?>upload/Image_not_available.png'" alt="" id="<?=$value['nik']?>">
-                            <p><b><?=$value['nama']?></b></p>
-                        </div>
+<!-- <button id="lb">launch modal by jquery</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="modalDashboard" tabindex="-1" role="dialog" aria-labelledby="modalDashboard" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalDashboardLabel">Modal <?=$breadcrumb_2?></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <select name="id_pelajaran" id="id_pelajaran" class="form-control">
+                    <option value="" disabled selected>Pilih Opsi</option>
+                    <?php foreach($opsi as $key=>$value): ?>
+                        <option data-api="<?=$value['api']?>" value="<?=$value['id']?>"><?=strtoupper($value['nama_opsi'])?></option>
                     <?php endforeach; ?>
-                    <div class="col-12"><hr></div>
+                </select>
+                <hr>
+                <div class="col-12 table-responsive NILAI">
+                    <table class="table table-bordered" id="tblNilai">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Pelajaran</th>
+                                <th>Jenis Nilai</th>
+                                <th>Nilai</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
                 </div>
 
+                <div class="col-12 table-responsive ABSEN">
+                    <table class="table table-bordered" id="tblAbsen">
+                        <thead>
+                            <tr>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <input type="hidden" id="nik_used">
             </div>
-        </div>
-
-    <div class="modal" tabindex="-1" role="dialog" id="modalDashboard">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Detail</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <input type="hidden" id="nik_used">
-                    <div class="col-12">
-                        <select name="id_pelajaran" id="id_pelajaran" class="form-control">
-                            <option value="" disabled selected>Pilih Opsi</option>
-                            <?php foreach($opsi as $key=>$value): ?>
-                                <option data-api="<?=$value['api']?>" value="<?=$value['id']?>"><?=strtoupper($value['nama_opsi'])?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <hr>
-
-                        <div class="col-12 table-responsive NILAI">
-                            <table class="table table-bordered" id="tblNilai">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama Pelajaran</th>
-                                        <th>Jenis Nilai</th>
-                                        <th>Nilai</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="col-12 table-responsive ABSEN">
-                            <table class="table table-bordered" id="tblAbsen">
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div> -->
-            </div>
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
         </div>
     </div>
-    
 </div>
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800"><?=$breadcrumb_2?></h1>
+    <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <i class="fas fa-download fa-sm text-white-50"></i> Generate Report
+    </a> -->
+</div>
+
+<div class="row">
+    <?php foreach($data_murid as $key=>$value): ?>
+        <!-- <?=print_r($value);?> -->
+        <div class="col-<?=$div?>">
+            <div class="card text-center shadow p-3 mb-5 bg-white rounded" style="width: 100%;">
+                <img class="card-img-top img-fluid img-rounded" src="<?=$value['image']?>">
+                <div class="card-body">
+                    <h5 class="card-title"><?=$value['nama']?></h5>
+                    <p class="card-text h5"><?=$value['alamat']?></p>
+                    <a class="btn btn-primary" id="<?=$value['nik']?>" data-toggle="modal" data-target="#modalDashboard">Detail</a>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>
+
+<hr>
+
+<!-- Page level plugins -->
+<script src="<?=base_url()?>plugins/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="<?=base_url()?>plugins/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
 <script>
     $(document).ready(function(){
-        // $('div.NILAI').addClass("hide");
-        // $('div.ABSEN').addClass("hide");
+
+        // $('div.NILAI').hide();
+        // $('div.ABSEN').hide();
+
 
         $('#modalDashboard').on('shown.bs.modal', function (e) {
 
@@ -104,8 +118,8 @@
             //$('#myInput').trigger('focus')
             var target = $(e.relatedTarget);
             var nik = target.attr("id");
-            //alert(link);
-            $('input#nik_used').val(nik);
+            //alert(nik);
+            $('#nik_used').val(nik);
         });
 
         $('#id_pelajaran').change(function(){
@@ -138,6 +152,7 @@
             }
             
         })
+
     })
 
     function setTable(table="", api=""){

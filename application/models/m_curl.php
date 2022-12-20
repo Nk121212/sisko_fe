@@ -38,6 +38,47 @@
             return json_decode($res, true);
         }
 
+        public function getGuruAll($start, $limit, $orderBy="", $orderType=""){
+            
+            $res = cURL(getConfig('api_url').'get/guru/all?start='.$start.'&limit='.$limit.'&order_by='.$orderBy.'&order_type='.$orderType);
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function addGuru($body){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'addguru', $body, 'post', $header);
+
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function getGuruByNip($nip){
+            
+            $res = cURL(getConfig('api_url').'get/guru/byNip?nip='.$nip);
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function updateGuruByNip($nip, $body){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'patch/guru/byNip/'.$nip, $body, 'custom', $header, 'PATCH');
+
+            return json_decode($res, true);
+        }
+
+        public function deleteGuruByNip($nip){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'delete/guru/byNip/'.$nip, array(), 'custom', $header, 'DELETE');
+            return json_decode($res, true);
+        }
+        
     }
 
 ?>

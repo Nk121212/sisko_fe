@@ -6,6 +6,11 @@
             $query = $this->db->get('app_config');
             return $query->result_array();
         }
+
+        public function global_menu(){
+            $query = $this->db->get('menu_config');
+            return $query->result_array();
+        }
     }
 
 ?>
