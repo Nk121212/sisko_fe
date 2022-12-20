@@ -87,11 +87,11 @@
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Menu</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse <?=(activeClassMethode()['class'] == 'master') ? 'show' : ''?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Master Menu:</h6>
-                        <?php foreach($menu as $key=>$value): ?>
-                        <a class="<?=$value['class']?>" href="<?=base_url()?><?=$value['href']?>"><?=$value['menu']?></a>
+                        <?php foreach(getMenu() as $key=>$value): ?>
+                            <a class="<?=$value['class']?> <?=($value['controller'] == activeClassMethode()['class'] && $value['function'] == activeClassMethode()['methode']) ? 'active' : ''?>" href="<?=base_url()?><?=$value['href']?>"><?=$value['menu']?></a>
                         <?php endforeach; ?>
                     </div>
                 </div>
@@ -435,7 +435,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="<?=base_url()?>logout">Logout</a>
                 </div>
             </div>
         </div>

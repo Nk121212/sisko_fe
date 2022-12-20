@@ -7,18 +7,14 @@ class SEKOLAH_Controller extends CI_Controller {
     {
         parent::__construct();
         $CI = & get_instance();
-        // $CI->load->helper('function');
+        //$CI->load->helper('dbconfig_helper');
+        //$CI->load->helper('my_helper');
         // $CI->load->model('auth_model');
         // $CI->load->model('api_model');
         // $CI->load->library('user_agent');
         $class = $CI->router->fetch_class();
         $method = $CI->router->fetch_method();
 
-        //echo $class;
-        //echo $method;
-
-        //print_r($CI->session->userdata());
-        //echo $this->session->userdata('login');
         if($this->session->userdata('login') && strtolower($class) == "auth" && strtolower($method) == 'login_page'){
             redirect("dashboard");
         }else{
@@ -29,34 +25,6 @@ class SEKOLAH_Controller extends CI_Controller {
         }
 
 
-    }
-
-    public function config_globals(){
-
-        $ci = & get_instance();
-        $ci->load->model('config_model');
-        $query = $ci->config_model->global_vars();
-
-        foreach ($query as $key => $value) {
-            $data[$value['key']] = $value['value'];
-        }
-
-        return $data;
-
-    }
-
-    public function configApp(){
-
-        $ci = & get_instance();
-        $ci->load->model('config_model');
-        $query = $ci->config_model->global_vars();
-
-        foreach ($query as $key => $value) {
-            $data[$value['key']] = $value['value'];
-        }
-
-        return (object)$data;
-        
     }
 
 }
