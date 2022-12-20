@@ -123,4 +123,31 @@ class Master extends SEKOLAH_Controller {
 
         echo json_encode($resp);
     }
+
+    public function get_guru_all(){
+
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->getGuruAll("", "");
+
+        echo json_encode($resp);
+    }
+
+    public function get_pelajaran_all(){
+
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->getPelajaranAll("", "");
+
+        echo json_encode($resp);
+    }
+
+    public function add_pelajaran(){
+
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->addPelajaran($this->input->post());
+
+        echo json_encode($resp);
+    }
 }

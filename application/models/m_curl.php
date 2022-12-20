@@ -78,6 +78,23 @@
             $res = cURL(getConfig('api_url').'delete/guru/byNip/'.$nip, array(), 'custom', $header, 'DELETE');
             return json_decode($res, true);
         }
+
+        public function getPelajaranAll($start, $limit, $orderBy="", $orderType=""){
+            
+            $res = cURL(getConfig('api_url').'get/pelajaran/all?start='.$start.'&limit='.$limit.'&order_by='.$orderBy.'&order_type='.$orderType);
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function addPelajaran($body){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'addpelajaran', $body, 'post', $header);
+
+            //return $res;
+            return json_decode($res, true);
+        }
         
     }
 

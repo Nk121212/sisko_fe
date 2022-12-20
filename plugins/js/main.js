@@ -27,3 +27,25 @@ function swal_response_delete(code, title, text){
         // footer: '<a href="">Why do I have this issue?</a>'
     })
 }
+
+function option_all(idSelect, endPoint){
+
+    $.post(base_url+endPoint,
+    {
+        //nip: nip
+    },
+    function(data){
+        console.log(data);
+        for (let index = 0; index < data.data.length; index++) {
+            //const element = array[index];
+            $.each(data.data[index], function(k, v) {
+                /// do stuff
+                //console.log(k);
+                //console.log(v);
+
+            });
+        }
+        
+        //alert("Data: " + data + "\nStatus: " + status);
+    });
+}

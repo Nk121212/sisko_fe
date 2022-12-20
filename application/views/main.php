@@ -441,6 +441,10 @@
         </div>
     </div>
 
+    <script>
+        var base_url = "<?=base_url()?>";
+    </script>
+
     <!-- Core plugin JavaScript-->
     <script src="<?=base_url()?>plugins/vendor/jquery-easing/jquery.easing.min.js"></script>
 
