@@ -236,7 +236,7 @@ class Master extends SEKOLAH_Controller {
 
             // $up_resp = $this->upload->display_errors();
             $postData = $this->input->post();
-            $resp = $this->M_curl->updateUserById($id, $postData);
+            $resp = $this->M_curl->addUser($id, $postData);
 
         } else {
             // saat berhasil ambil datanya
@@ -416,7 +416,7 @@ class Master extends SEKOLAH_Controller {
 
             // $up_resp = $this->upload->display_errors();
             $postData = $this->input->post();
-            $resp = $this->M_curl->updateUserById($id, $postData);
+            $resp = $this->M_curl->addMurid($id, $postData);
 
         } else {
             // saat berhasil ambil datanya
@@ -474,7 +474,7 @@ class Master extends SEKOLAH_Controller {
 
             // $up_resp = $this->upload->display_errors();
             $postData = $this->input->post();
-            $resp = $this->M_curl->updateUserById($id, $postData);
+            $resp = $this->M_curl->updateMuridById($id, $postData);
 
         } else {
             // saat berhasil ambil datanya
