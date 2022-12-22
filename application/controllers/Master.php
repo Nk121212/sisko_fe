@@ -81,6 +81,19 @@ class Master extends SEKOLAH_Controller {
         $this->load->view("main", $data);
     }
 
+    public function role_page(){
+
+        $data = array(
+            'page' => 'logged_in/master/role',
+            'title' => 'Master Role',
+            'breadcrumb_1' => "Master",
+            'breadcrumb_2' => "Role",
+            'breadcrumb_3' => ""
+        );
+
+        $this->load->view("main", $data);
+    }
+
     //guru 
     
     public function add_guru(){
@@ -215,13 +228,15 @@ class Master extends SEKOLAH_Controller {
         
         if (!$this->upload->do_upload('upload')) {
             // saat gagal, tampilkan pesan error
-            $resp = array();
-            $resp['title'] = 'Insert User';
-            $resp['code'] = 409;
-            $resp['data'] = array();
-            $resp['message'] = 'Upload Failed '.$this->upload->display_errors();
+            // $resp = array();
+            // $resp['title'] = 'Insert User';
+            // $resp['code'] = 409;
+            // $resp['data'] = array();
+            // $resp['message'] = 'Upload Failed '.$this->upload->display_errors();
 
-            $up_resp = $this->upload->display_errors();
+            // $up_resp = $this->upload->display_errors();
+            $postData = $this->input->post();
+            $resp = $this->M_curl->updateUserById($id, $postData);
 
         } else {
             // saat berhasil ambil datanya
@@ -230,7 +245,7 @@ class Master extends SEKOLAH_Controller {
             $folder = basename(dirname($up_resp['full_path']));
             $file = basename($up_resp['full_path']);
 
-            $location = $folder.'/users/'.$file;
+            $location = 'upload/'.$folder.'/'.$file;
 
             $postData = array_merge(array('image' => $location), $this->input->post());
 
@@ -255,6 +270,9 @@ class Master extends SEKOLAH_Controller {
         //print_r($this->input->post());
         header('Content-Type: application/json');
 
+        $id = $this->input->post('id');
+        unset($_POST['id']);
+
         $this->load->helper('config_upload_helper');
 
         $filename = base64_encode($this->input->post('username'));
@@ -268,13 +286,16 @@ class Master extends SEKOLAH_Controller {
         
         if (!$this->upload->do_upload('upload')) {
             // saat gagal, tampilkan pesan error
-            $resp = array();
-            $resp['title'] = 'Insert User';
-            $resp['code'] = 409;
-            $resp['data'] = array();
-            $resp['message'] = 'Upload Failed '.$this->upload->display_errors();
+            // // $resp = array();
+            // // $resp['title'] = 'Insert User';
+            // // $resp['code'] = 409;
+            // // $resp['data'] = array();
+            // // $resp['message'] = 'Upload Failed '.$this->upload->display_errors();
 
-            $up_resp = $this->upload->display_errors();
+            // $up_resp = $this->upload->display_errors();
+
+            $postData = $this->input->post();
+            $resp = $this->M_curl->updateUserById($id, $postData);
 
         } else {
             // saat berhasil ambil datanya
@@ -283,10 +304,7 @@ class Master extends SEKOLAH_Controller {
             $folder = basename(dirname($up_resp['full_path']));
             $file = basename($up_resp['full_path']);
 
-            $location = $folder.'/users/'.$file;
-
-            $id = $this->input->post('id');
-            unset($_POST['id']);
+            $location = 'upload/'.$folder.'/'.$file;
 
             $postData = array_merge(array('image' => $location), $this->input->post());
 
@@ -390,13 +408,15 @@ class Master extends SEKOLAH_Controller {
         
         if (!$this->upload->do_upload('upload')) {
             // saat gagal, tampilkan pesan error
-            $resp = array();
-            $resp['title'] = 'Insert User';
-            $resp['code'] = 409;
-            $resp['data'] = array();
-            $resp['message'] = 'Upload Failed '.$this->upload->display_errors();
+            // $resp = array();
+            // $resp['title'] = 'Insert User';
+            // $resp['code'] = 409;
+            // $resp['data'] = array();
+            // $resp['message'] = 'Upload Failed '.$this->upload->display_errors();
 
-            $up_resp = $this->upload->display_errors();
+            // $up_resp = $this->upload->display_errors();
+            $postData = $this->input->post();
+            $resp = $this->M_curl->updateUserById($id, $postData);
 
         } else {
             // saat berhasil ambil datanya
@@ -430,6 +450,9 @@ class Master extends SEKOLAH_Controller {
         //print_r($this->input->post());
         header('Content-Type: application/json');
 
+        $id = $this->input->post('id');
+        unset($_POST['id']);
+
         $this->load->helper('config_upload_helper');
 
         $filename = base64_encode($this->input->post('id'));
@@ -443,13 +466,15 @@ class Master extends SEKOLAH_Controller {
         
         if (!$this->upload->do_upload('upload')) {
             // saat gagal, tampilkan pesan error
-            $resp = array();
-            $resp['title'] = 'Insert User';
-            $resp['code'] = 409;
-            $resp['data'] = array();
-            $resp['message'] = 'Upload Failed '.$this->upload->display_errors();
+            // $resp = array();
+            // $resp['title'] = 'Insert User';
+            // $resp['code'] = 409;
+            // $resp['data'] = array();
+            // $resp['message'] = 'Upload Failed '.$this->upload->display_errors();
 
-            $up_resp = $this->upload->display_errors();
+            // $up_resp = $this->upload->display_errors();
+            $postData = $this->input->post();
+            $resp = $this->M_curl->updateUserById($id, $postData);
 
         } else {
             // saat berhasil ambil datanya
@@ -459,9 +484,6 @@ class Master extends SEKOLAH_Controller {
             $file = basename($up_resp['full_path']);
 
             $location = 'upload/'.$folder.'/'.$file;
-
-            $id = $this->input->post('id');
-            unset($_POST['id']);
 
             $postData = array_merge(array('image' => $location), $this->input->post());
 
@@ -484,7 +506,7 @@ class Master extends SEKOLAH_Controller {
 
     //option
 
-    public function get_Option_all(){
+    public function get_option_all(){
 
         header('Content-Type: application/json');
 
@@ -535,6 +557,63 @@ class Master extends SEKOLAH_Controller {
         $id = $this->input->post('id');
 
         $resp = $this->M_curl->deleteOptionById($id);
+
+        echo json_encode($resp);
+    }
+
+    //role
+
+    public function get_role_all(){
+
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->getRoleAll("", "");
+
+        echo json_encode($resp);
+    }
+
+    public function add_role(){
+
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->addRole($this->input->post());
+
+        echo json_encode($resp);
+    }
+
+    public function get_role_by_id(){
+
+        //print_r($this->input->post());exit;
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->getRoleById($this->input->post('id'));
+
+        echo json_encode($resp);
+
+    }
+
+    public function update_role_by_id(){
+        //print_r($this->input->post());
+        header('Content-Type: application/json');
+
+        $id = $this->input->post('id');
+        unset($_POST['id']);
+
+        // echo $id;
+        // exit;
+
+        $resp = $this->M_curl->updateRoleById($id, $this->input->post());
+
+        echo json_encode($resp);
+    }
+
+    public function delete_role_by_id(){
+        //print_r($this->input->post());
+        header('Content-Type: application/json');
+
+        $id = $this->input->post('id');
+
+        $resp = $this->M_curl->deleteRoleById($id);
 
         echo json_encode($resp);
     }

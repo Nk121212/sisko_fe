@@ -107,4 +107,12 @@ $route['option/get/id'] = 'master/get_option_by_id';
 $route['option/update/id'] = 'master/update_option_by_id';
 $route['option/delete/id'] = 'master/delete_option_by_id';
 
+$route['role/page'] = 'master/role_page';
+$route['getRoleAll'] = 'table_json/get_role_all'; //datatable
+$route['get_role_all'] = 'master/get_role_all'; //dipakai untuk global ex : select option
+$route['role/add'] = 'master/add_role';
+$route['role/get/id'] = 'master/get_role_by_id';
+$route['role/update/id'] = 'master/update_role_by_id';
+$route['role/delete/id'] = 'master/delete_role_by_id';
+
 $route['getNilaiByNis'] = 'table_json/get_nilai_by_nis';

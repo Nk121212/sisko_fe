@@ -295,6 +295,49 @@
             $res = cURL(getConfig('api_url').'delete/opsi/byId/'.$id, array(), 'custom', $header, 'DELETE');
             return json_decode($res, true);
         }
+
+        //crud role
+
+        public function getRoleAll($start, $limit, $orderBy="", $orderType=""){
+            
+            $res = cURL(getConfig('api_url').'get/role/all?start='.$start.'&limit='.$limit.'&order_by='.$orderBy.'&order_type='.$orderType);
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function addRole($body){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'addrole', $body, 'post', $header);
+
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function getRoleById($id){
+            
+            $res = cURL(getConfig('api_url').'get/role/byId?id='.$id);
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function updateRoleById($id, $body){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'patch/role/byId/'.$id, $body, 'custom', $header, 'PATCH');
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function deleteRoleById($id){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'delete/role/byId/'.$id, array(), 'custom', $header, 'DELETE');
+            return json_decode($res, true);
+        }
         
     }
 
