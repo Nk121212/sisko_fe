@@ -185,7 +185,7 @@
                 success: function (data) {
 
                     console.log(data);
-                    var text = (data.code == '201') ? 'Insert Murid Sukses !' : data.message; 
+                    var text = (data.code == '201') ? data.message : data.message; 
                     swal_response_insert(data.code, 'Insert Murid', text, 'modalMurid');
                     if(data.code == '201'){
                         dataTable.draw();
@@ -252,7 +252,7 @@
                 success: function (data) {
 
                     console.log(data);
-                    var text = (data.code == '200') ? 'Update Murid Sukses !' : data.message; 
+                    var text = (data.code == '200') ? data.message : data.message; 
                     swal_response_update(data.code, 'Update Murid', text, 'modalMuridUpdate');
                     if(data.code == '200'){
                         dataTable.draw();

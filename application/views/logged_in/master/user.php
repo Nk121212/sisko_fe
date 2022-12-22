@@ -199,7 +199,7 @@
                 success: function (data) {
 
                     console.log(data);
-                    var text = (data.code == '201') ? 'Insert User Sukses !' : data.message; 
+                    var text = (data.code == '201') ? data.message : data.message; 
                     swal_response_insert(data.code, 'Insert User', text, 'modalUser');
                     if(data.code == '201'){
                         dataTable.draw();
@@ -264,7 +264,7 @@
                 success: function (data) {
 
                     console.log(data);
-                    var text = (data.code == '200') ? 'Update user Sukses !' : data.message; 
+                    var text = (data.code == '200') ? data.message : data.message; 
                     swal_response_update(data.code, 'Update user', text, 'modalUserUpdate');
                     if(data.code == '200'){
                         dataTable.draw();

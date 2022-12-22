@@ -237,6 +237,7 @@ class Master extends SEKOLAH_Controller {
             // $up_resp = $this->upload->display_errors();
             $postData = $this->input->post();
             $resp = $this->M_curl->addUser($id, $postData);
+            $resp['message'] = $this->upload->display_errors();
 
         } else {
             // saat berhasil ambil datanya
@@ -250,6 +251,7 @@ class Master extends SEKOLAH_Controller {
             $postData = array_merge(array('image' => $location), $this->input->post());
 
             $resp = $this->M_curl->addUser($postData);
+            $resp['message'] = 'Insert User Sukses !';
         }
 
         echo json_encode($resp);
@@ -296,6 +298,7 @@ class Master extends SEKOLAH_Controller {
 
             $postData = $this->input->post();
             $resp = $this->M_curl->updateUserById($id, $postData);
+            $resp['message'] = $this->upload->display_errors();
 
         } else {
             // saat berhasil ambil datanya
@@ -309,6 +312,7 @@ class Master extends SEKOLAH_Controller {
             $postData = array_merge(array('image' => $location), $this->input->post());
 
             $resp = $this->M_curl->updateUserById($id, $postData);
+            $resp['message'] = 'Update User Sukses !';
         }
 
         echo json_encode($resp);
@@ -417,6 +421,7 @@ class Master extends SEKOLAH_Controller {
             // $up_resp = $this->upload->display_errors();
             $postData = $this->input->post();
             $resp = $this->M_curl->addMurid($id, $postData);
+            $resp['message'] = $this->upload->display_errors();
 
         } else {
             // saat berhasil ambil datanya
@@ -430,6 +435,7 @@ class Master extends SEKOLAH_Controller {
             $postData = array_merge(array('image' => $location), $this->input->post());
 
             $resp = $this->M_curl->addMurid($postData);
+            $resp['message'] = 'Insert Murid Sukses !';
         }
 
         echo json_encode($resp);
@@ -475,6 +481,7 @@ class Master extends SEKOLAH_Controller {
             // $up_resp = $this->upload->display_errors();
             $postData = $this->input->post();
             $resp = $this->M_curl->updateMuridById($id, $postData);
+            $resp['message'] = $this->upload->display_errors();
 
         } else {
             // saat berhasil ambil datanya
@@ -488,6 +495,7 @@ class Master extends SEKOLAH_Controller {
             $postData = array_merge(array('image' => $location), $this->input->post());
 
             $resp = $this->M_curl->updateMuridById($id, $postData);
+            $resp['message'] = 'Update Murid Sukses !';
         }
 
         echo json_encode($resp);
