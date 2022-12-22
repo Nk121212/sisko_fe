@@ -11,7 +11,7 @@ class Home extends SEKOLAH_Controller {
         $getOpsi = $this->M_curl->getAllOpsi();
 
         $totalAnak = count($get_murid_by_user_logged_in['data']);
-        $splitDiv = (12/$totalAnak);
+        $splitDiv = ($totalAnak === 0) ? 12 : (12/$totalAnak);
         $splitDivUsed = ($splitDiv > 1) ? $splitDiv : 2;
 
         $menu = getMenu();
