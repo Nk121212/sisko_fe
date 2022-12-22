@@ -124,7 +124,7 @@
             return json_decode($res, true);
         }
 
-        //crud pelajaran
+        //crud user
 
         public function getUserAll($start, $limit, $orderBy="", $orderType=""){
             
@@ -164,6 +164,135 @@
             $header = array();
             
             $res = cURL(getConfig('api_url').'delete/user/byId/'.$id, array(), 'custom', $header, 'DELETE');
+            return json_decode($res, true);
+        }
+
+        //crud jenis nilai
+
+        public function getJenisNilaiAll($start, $limit, $orderBy="", $orderType=""){
+            
+            $res = cURL(getConfig('api_url').'get/jenisnilai/all?start='.$start.'&limit='.$limit.'&order_by='.$orderBy.'&order_type='.$orderType);
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function addJenisNilai($body){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'addjenisnilai', $body, 'post', $header);
+
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function getJenisNilaiById($id){
+            
+            $res = cURL(getConfig('api_url').'get/jenisnilai/byId?id='.$id);
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function updateJenisNilaiById($id, $body){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'patch/jenisnilai/byId/'.$id, $body, 'custom', $header, 'PATCH');
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function deleteJenisNilaiById($id){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'delete/jenisnilai/byId/'.$id, array(), 'custom', $header, 'DELETE');
+            return json_decode($res, true);
+        }
+
+        //crud murid
+
+        public function getMuridAll($start, $limit, $orderBy="", $orderType=""){
+            
+            $res = cURL(getConfig('api_url').'get/murid/all?start='.$start.'&limit='.$limit.'&order_by='.$orderBy.'&order_type='.$orderType);
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function addMurid($body){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'addmurid', $body, 'post', $header);
+
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function getMuridById($id){
+            
+            $res = cURL(getConfig('api_url').'get/murid/byId?id='.$id);
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function updateMuridById($id, $body){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'patch/murid/byId/'.$id, $body, 'custom', $header, 'PATCH');
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function deleteMuridById($id){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'delete/murid/byId/'.$id, array(), 'custom', $header, 'DELETE');
+            return json_decode($res, true);
+        }
+
+        //crud option
+
+        public function getOptionAll($start, $limit, $orderBy="", $orderType=""){
+            
+            $res = cURL(getConfig('api_url').'get/opsi/all?start='.$start.'&limit='.$limit.'&order_by='.$orderBy.'&order_type='.$orderType);
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function addOption($body){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'addopsi', $body, 'post', $header);
+
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function getOptionById($id){
+            
+            $res = cURL(getConfig('api_url').'get/opsi/byId?id='.$id);
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function updateOptionById($id, $body){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'patch/opsi/byId/'.$id, $body, 'custom', $header, 'PATCH');
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function deleteOptionById($id){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'delete/opsi/byId/'.$id, array(), 'custom', $header, 'DELETE');
             return json_decode($res, true);
         }
         

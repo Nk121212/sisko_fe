@@ -53,18 +53,10 @@ $route['default_controller'] = 'auth/login_page';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-//$route['login'] = 'auth/login_page';
 $route['register'] = 'auth/register_page';
-
 $route['login/action'] = 'auth/login';
 $route['logout'] = 'auth/logout';
 $route['dashboard'] = 'home/dashboard';
-
-$route['users/page'] = 'master/users_page';
-
-$route['jenis_nilai/page'] = 'master/jnilai_page';
-$route['murid/page'] = 'master/murid_page';
-$route['option/page'] = 'master/option_page';
 
 
 $route['guru/page'] = 'master/guru_page';
@@ -83,12 +75,36 @@ $route['pelajaran/get/id'] = 'master/get_pelajaran_by_id';
 $route['pelajaran/update/id'] = 'master/update_pelajaran_by_id';
 $route['pelajaran/delete/id'] = 'master/delete_pelajaran_by_id';
 
-$route['user/page'] = 'master/user_page';
+$route['users/page'] = 'master/users_page';
 $route['getUserAll'] = 'table_json/get_user_all'; //datatable
 $route['get_user_all'] = 'master/get_user_all'; //dipakai untuk global ex : select option
 $route['user/add'] = 'master/add_user';
 $route['user/get/id'] = 'master/get_user_by_id';
 $route['user/update/id'] = 'master/update_user_by_id';
 $route['user/delete/id'] = 'master/delete_user_by_id';
+
+$route['jenis_nilai/page'] = 'master/jnilai_page';
+$route['getJenisNilaiAll'] = 'table_json/get_jenisnilai_all'; //datatable
+$route['get_jenisnilai_all'] = 'master/get_jenisnilai_all'; //dipakai untuk global ex : select option
+$route['jenisnilai/add'] = 'master/add_jenisnilai';
+$route['jenisnilai/get/id'] = 'master/get_jenisnilai_by_id';
+$route['jenisnilai/update/id'] = 'master/update_jenisnilai_by_id';
+$route['jenisnilai/delete/id'] = 'master/delete_jenisnilai_by_id';
+
+$route['murid/page'] = 'master/murid_page';
+$route['getMuridAll'] = 'table_json/get_murid_all'; //datatable
+$route['get_murid_all'] = 'master/get_murid_all'; //dipakai untuk global ex : select option
+$route['murid/add'] = 'master/add_murid';
+$route['murid/get/id'] = 'master/get_murid_by_id';
+$route['murid/update/id'] = 'master/update_murid_by_id';
+$route['murid/delete/id'] = 'master/delete_murid_by_id';
+
+$route['option/page'] = 'master/option_page';
+$route['getOptionAll'] = 'table_json/get_option_all'; //datatable
+$route['get_option_all'] = 'master/get_option_all'; //dipakai untuk global ex : select option
+$route['option/add'] = 'master/add_option';
+$route['option/get/id'] = 'master/get_option_by_id';
+$route['option/update/id'] = 'master/update_option_by_id';
+$route['option/delete/id'] = 'master/delete_option_by_id';
 
 $route['getNilaiByNis'] = 'table_json/get_nilai_by_nis';

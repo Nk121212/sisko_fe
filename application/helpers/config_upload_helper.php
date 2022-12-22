@@ -1,7 +1,7 @@
 <?php
-    function configUpload($filename){
+    function configUpload($filename, $dir){
         
-        $config['upload_path'] = './upload/';
+        $config['upload_path'] = $dir;
         $config['allowed_types'] = 'gif|jpg|png';
         $config['file_name'] = $filename;
         $config['max_size']     = '100';

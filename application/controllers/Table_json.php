@@ -160,7 +160,7 @@ class Table_json extends SEKOLAH_Controller {
                 'nama'=> strtoupper($res['nama']),
                 'alamat' => $res['alamat'],
                 'no_telp'=> strtoupper($res['no_telp']),
-                'image' => '<image style="width: 50%;" src="'.$image_location.'" alt="No Image"></image>',
+                'image' => '<image style="width: 30%;" src="'.$image_location.'" alt="No Image"></image>',
                 'action' => '
                     <a class="btn btn-warning edit" data-id="'.$res['id'].'"><i class="fas fa-edit"></i></a>
                     <a class="btn btn-danger delete" data-id="'.$res['id'].'"><i class="fa fa-trash" aria-hidden="true"></i></a>
@@ -172,4 +172,118 @@ class Table_json extends SEKOLAH_Controller {
 
         echo json_encode($data, JSON_PRETTY_PRINT);
     }
+
+    public function get_jenisnilai_all(){
+
+        $start = $this->input->post('start') ? $this->input->post('start') : 0;
+
+        $resp = $this->M_curl->getJenisNilaiAll($start, $this->limit);
+
+        $data = array(
+            //'limit' => $this->limit,
+            'real_resp' => $resp,
+            'postData' => $this->input->post(),
+            'recordsTotal'=> $resp['total_record'],
+            'recordsFiltered'=> $resp['total_record'],
+            'data'=>array()
+        );
+        
+        $i=1+(integer)$this->input->post('start');
+
+        foreach($resp['data'] as $res){
+
+            $data['data'][] = array(
+                'no' => $i,
+                'id'=> $res['id'],
+                'jenis_nilai'=> strtoupper($res['jenis_nilai']),
+                'keterangan' => $res['keterangan'],
+                'action' => '
+                    <a class="btn btn-warning edit" data-id="'.$res['id'].'"><i class="fas fa-edit"></i></a>
+                    <a class="btn btn-danger delete" data-id="'.$res['id'].'"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                '
+            );
+            
+            $i++;
+        }
+
+        echo json_encode($data, JSON_PRETTY_PRINT);
+    }
+
+    public function get_murid_all(){
+
+        $start = $this->input->post('start') ? $this->input->post('start') : 0;
+
+        $resp = $this->M_curl->getMuridAll($start, $this->limit);
+
+        $data = array(
+            //'limit' => $this->limit,
+            'real_resp' => $resp,
+            'postData' => $this->input->post(),
+            'recordsTotal'=> $resp['total_record'],
+            'recordsFiltered'=> $resp['total_record'],
+            'data'=>array()
+        );
+        
+        $i=1+(integer)$this->input->post('start');
+
+        foreach($resp['data'] as $res){
+
+            $image_location = ($res['image'] == "" || $res['image'] === null) ? "" : base_url().$res['image'];
+
+            $data['data'][] = array(
+                'no' => $i,
+                'id'=> $res['id'],
+                'nama'=> strtoupper($res['nama']),
+                'alamat' => $res['alamat'],
+                'telepon'=> strtoupper($res['telepon']),
+                'image' => '<image style="width: 30%;" src="'.$image_location.'" alt="No Image"></image>',
+                'action' => '
+                    <a class="btn btn-warning edit" data-id="'.$res['id'].'"><i class="fas fa-edit"></i></a>
+                    <a class="btn btn-danger delete" data-id="'.$res['id'].'"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                '
+            );
+            
+            $i++;
+        }
+
+        echo json_encode($data, JSON_PRETTY_PRINT);
+    }
+
+    public function get_option_all(){
+
+        $start = $this->input->post('start') ? $this->input->post('start') : 0;
+
+        $resp = $this->M_curl->getOptionAll($start, $this->limit);
+
+        $data = array(
+            //'limit' => $this->limit,
+            'real_resp' => $resp,
+            'postData' => $this->input->post(),
+            'recordsTotal'=> $resp['total_record'],
+            'recordsFiltered'=> $resp['total_record'],
+            'data'=>array()
+        );
+        
+        $i=1+(integer)$this->input->post('start');
+
+        foreach($resp['data'] as $res){
+
+            $data['data'][] = array(
+                'no' => $i,
+                'id'=> $res['id'],
+                'nama_opsi'=> strtoupper($res['nama_opsi']),
+                'keterangan' => $res['keterangan'],
+                'api' => $res['api'],
+                'action' => '
+                    <a class="btn btn-warning edit" data-id="'.$res['id'].'"><i class="fas fa-edit"></i></a>
+                    <a class="btn btn-danger delete" data-id="'.$res['id'].'"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                '
+            );
+            
+            $i++;
+        }
+
+        echo json_encode($data, JSON_PRETTY_PRINT);
+    }
+
 }

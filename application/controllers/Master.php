@@ -205,8 +205,9 @@ class Master extends SEKOLAH_Controller {
         $this->load->helper('config_upload_helper');
 
         $filename = base64_encode($this->input->post('username'));
+        $dir = './upload/users/';
 
-        $config = configUpload($filename);
+        $config = configUpload($filename, $dir);
 
         $this->load->library('upload', $config);
 
@@ -229,7 +230,7 @@ class Master extends SEKOLAH_Controller {
             $folder = basename(dirname($up_resp['full_path']));
             $file = basename($up_resp['full_path']);
 
-            $location = $folder.'/'.$file;
+            $location = $folder.'/users/'.$file;
 
             $postData = array_merge(array('image' => $location), $this->input->post());
 
@@ -257,8 +258,9 @@ class Master extends SEKOLAH_Controller {
         $this->load->helper('config_upload_helper');
 
         $filename = base64_encode($this->input->post('username'));
+        $dir = './upload/users/';
 
-        $config = configUpload($filename);
+        $config = configUpload($filename, $dir);
 
         $this->load->library('upload', $config);
 
@@ -281,7 +283,7 @@ class Master extends SEKOLAH_Controller {
             $folder = basename(dirname($up_resp['full_path']));
             $file = basename($up_resp['full_path']);
 
-            $location = $folder.'/'.$file;
+            $location = $folder.'/users/'.$file;
 
             $id = $this->input->post('id');
             unset($_POST['id']);
@@ -301,6 +303,238 @@ class Master extends SEKOLAH_Controller {
         $id = $this->input->post('id');
 
         $resp = $this->M_curl->deleteUserById($id);
+
+        echo json_encode($resp);
+    }
+
+    //jenis nilai
+    public function get_jenisnilai_all(){
+
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->getJenisNilaiAll("", "");
+
+        echo json_encode($resp);
+    }
+
+    public function add_jenisnilai(){
+
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->addJenisNilai($this->input->post());
+
+        echo json_encode($resp);
+    }
+
+    public function get_jenisnilai_by_id(){
+
+        //print_r($this->input->post());exit;
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->getJenisNilaiById($this->input->post('id'));
+
+        echo json_encode($resp);
+
+    }
+
+    public function update_jenisnilai_by_id(){
+        //print_r($this->input->post());
+        header('Content-Type: application/json');
+
+        $id = $this->input->post('id');
+        unset($_POST['id']);
+
+        // echo $id;
+        // exit;
+
+        $resp = $this->M_curl->updateJenisNilaiById($id, $this->input->post());
+
+        echo json_encode($resp);
+    }
+
+    public function delete_jenisnilai_by_id(){
+        //print_r($this->input->post());
+        header('Content-Type: application/json');
+
+        $id = $this->input->post('id');
+
+        $resp = $this->M_curl->deleteJenisNilaiById($id);
+
+        echo json_encode($resp);
+    }
+
+    //user
+    public function get_murid_all(){
+
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->getMuridAll("", "");
+
+        echo json_encode($resp);
+    }
+
+    public function add_murid(){
+
+        header('Content-Type: application/json');
+
+        $this->load->helper('config_upload_helper');
+
+        $filename = base64_encode($this->input->post('id'));
+        $dir = './upload/murid/';
+
+        $config = configUpload($filename, $dir);
+
+        $this->load->library('upload', $config);
+
+        $upload = $this->upload->initialize($config);
+        
+        if (!$this->upload->do_upload('upload')) {
+            // saat gagal, tampilkan pesan error
+            $resp = array();
+            $resp['title'] = 'Insert User';
+            $resp['code'] = 409;
+            $resp['data'] = array();
+            $resp['message'] = 'Upload Failed '.$this->upload->display_errors();
+
+            $up_resp = $this->upload->display_errors();
+
+        } else {
+            // saat berhasil ambil datanya
+            $up_resp = $this->upload->data();
+
+            $folder = basename(dirname($up_resp['full_path']));
+            $file = basename($up_resp['full_path']);
+
+            $location = 'upload/'.$folder.'/'.$file;
+
+            $postData = array_merge(array('image' => $location), $this->input->post());
+
+            $resp = $this->M_curl->addMurid($postData);
+        }
+
+        echo json_encode($resp);
+    }
+
+    public function get_murid_by_id(){
+
+        //print_r($this->input->post());exit;
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->getMuridById($this->input->post('id'));
+
+        echo json_encode($resp);
+
+    }
+
+    public function update_murid_by_id(){
+        //print_r($this->input->post());
+        header('Content-Type: application/json');
+
+        $this->load->helper('config_upload_helper');
+
+        $filename = base64_encode($this->input->post('id'));
+        $dir = './upload/murid/';
+
+        $config = configUpload($filename, $dir);
+
+        $this->load->library('upload', $config);
+
+        $upload = $this->upload->initialize($config);
+        
+        if (!$this->upload->do_upload('upload')) {
+            // saat gagal, tampilkan pesan error
+            $resp = array();
+            $resp['title'] = 'Insert User';
+            $resp['code'] = 409;
+            $resp['data'] = array();
+            $resp['message'] = 'Upload Failed '.$this->upload->display_errors();
+
+            $up_resp = $this->upload->display_errors();
+
+        } else {
+            // saat berhasil ambil datanya
+            $up_resp = $this->upload->data();
+
+            $folder = basename(dirname($up_resp['full_path']));
+            $file = basename($up_resp['full_path']);
+
+            $location = 'upload/'.$folder.'/'.$file;
+
+            $id = $this->input->post('id');
+            unset($_POST['id']);
+
+            $postData = array_merge(array('image' => $location), $this->input->post());
+
+            $resp = $this->M_curl->updateMuridById($id, $postData);
+        }
+
+        echo json_encode($resp);
+    }
+
+    public function delete_murid_by_id(){
+        //print_r($this->input->post());
+        header('Content-Type: application/json');
+
+        $id = $this->input->post('id');
+
+        $resp = $this->M_curl->deleteMuridById($id);
+
+        echo json_encode($resp);
+    }
+
+    //option
+
+    public function get_Option_all(){
+
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->getOptionAll("", "");
+
+        echo json_encode($resp);
+    }
+
+    public function add_option(){
+
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->addOption($this->input->post());
+
+        echo json_encode($resp);
+    }
+
+    public function get_option_by_id(){
+
+        //print_r($this->input->post());exit;
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->getOptionById($this->input->post('id'));
+
+        echo json_encode($resp);
+
+    }
+
+    public function update_option_by_id(){
+        //print_r($this->input->post());
+        header('Content-Type: application/json');
+
+        $id = $this->input->post('id');
+        unset($_POST['id']);
+
+        // echo $id;
+        // exit;
+
+        $resp = $this->M_curl->updateOptionById($id, $this->input->post());
+
+        echo json_encode($resp);
+    }
+
+    public function delete_option_by_id(){
+        //print_r($this->input->post());
+        header('Content-Type: application/json');
+
+        $id = $this->input->post('id');
+
+        $resp = $this->M_curl->deleteOptionById($id);
 
         echo json_encode($resp);
     }

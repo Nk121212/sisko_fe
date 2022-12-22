@@ -203,6 +203,7 @@
                     swal_response_insert(data.code, 'Insert User', text, 'modalUser');
                     if(data.code == '201'){
                         dataTable.draw();
+                        $('#frmAdduser')[0].reset();
                     }
 
                 },
@@ -267,6 +268,7 @@
                     swal_response_update(data.code, 'Update user', text, 'modalUserUpdate');
                     if(data.code == '200'){
                         dataTable.draw();
+                        $('#frmUpdateuser')[0].reset();
                     }
 
                 },
