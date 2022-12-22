@@ -12,7 +12,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Pelajaran</th>
-                            <th>NIP</th>
+                            <th>KETERANGAN</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -25,7 +25,7 @@
 </div>
 
 <div class="modal fade" tabindex="-1" role="dialog" id="modalPelajaran">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Modal <?=$breadcrumb_2?></h5>
@@ -40,24 +40,13 @@
                     <div class="col-12 row">
                         
                         
-                        <div class="form-group col-6">
-                            <label for="nip">Guru</label>
-                            <select name="nip" id="nip" class="form-control">
-                                <option value="" disabled selected>Pilih Guru</option>
-                            </select>
-                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                        </div>
-                        <div class="form-group col-6">
+                        <div class="form-group col-12">
                             <label for="nama_Pelajaran">Nama Pelajaran</label>
                             <input type="text" class="form-control" id="nama_Pelajaran" name="nama_Pelajaran">
                         </div>
-                        <div class="form-group col-6">
-                            <label for="no_telepon">No Telp</label>
-                            <input type="text" class="form-control" id="no_telepon" name="no_telepon">
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="alamat">ALAMAT</label>
-                            <textarea class="form-control" name="alamat" id="alamat" cols="20" rows="5"></textarea>
+                        <div class="form-group col-12">
+                            <label for="keterangan">KETERANGAN</label>
+                            <textarea class="form-control" name="keterangan" id="keterangan" cols="20" rows="5"></textarea>
                             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                         </div>
                         
@@ -74,7 +63,7 @@
 </div>
 
 <div class="modal fade" tabindex="-1" role="dialog" id="modalPelajaranUpdate">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Modal <?=$breadcrumb_2?></h5>
@@ -87,24 +76,14 @@
                 <div class="modal-body up_mod">
                     
                     <div class="col-12 row">
-                        
-                        
-                        <div class="form-group col-6">
-                            <label for="nip">NIP</label>
-                            <input type="text" class="form-control" id="nip" name="nip" readonly>
-                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                        </div>
-                        <div class="form-group col-6">
+                        <input type="hidden" name="id" id="id">
+                        <div class="form-group col-12">
                             <label for="nama_Pelajaran">Nama Pelajaran</label>
-                            <input type="text" class="form-control" id="nama_Pelajaran" name="nama_Pelajaran">
+                            <input type="text" class="form-control" id="nama_pelajaran" name="nama_pelajaran">
                         </div>
-                        <div class="form-group col-6">
-                            <label for="no_telepon">No Telp</label>
-                            <input type="text" class="form-control" id="no_telepon" name="no_telepon">
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="alamat">ALAMAT</label>
-                            <textarea class="form-control" name="alamat" id="alamat" cols="20" rows="5"></textarea>
+                        <div class="form-group col-12">
+                            <label for="keterangan">KETERANGAN</label>
+                            <textarea class="form-control" name="keterangan" id="keterangan" cols="20" rows="5"></textarea>
                             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                         </div>
                         
@@ -127,7 +106,7 @@
 <script>
     $(document).ready(function(){
 
-        option_all('');
+        //option_all('');
 
         var dataTable = $('#tblPelajaran').DataTable( {
 
@@ -159,7 +138,7 @@
             columns: [
                 {data: "no", orderable:false, width: "30px", className: "dt-body-center"},
                 {data: "nama_pelajaran", orderable:false},
-                {data: "nip", orderable:false},
+                {data: "keterangan", orderable:false},
                 {data: "action", orderable:false}
             ]
         });
@@ -202,18 +181,18 @@
 
             $('#frmAddPelajaran')[0].reset();
 
-            var nip = $(this).attr('data-nip');
+            var id = $(this).attr('data-id');
 
-            $.post("<?=base_url()?>pelajaran/get/nip",
+            $.post("<?=base_url()?>pelajaran/get/id",
             {
-                nip: nip
+                id: id
             },
             function(data){
                 console.log(data);
                 $.each(data.data[0], function(k, v) {
                     /// do stuff
-                    // console.log(k);
-                    // console.log(v);
+                    console.log(k);
+                    console.log(v);
 
                     $('.up_mod input#'+k).val(v);
                     $('.up_mod textarea#'+k).text(v);
@@ -235,7 +214,7 @@
             var formData = new FormData(this);
 
             $.ajax({
-                url: '<?=base_url()?>pelajaran/update/nip',
+                url: '<?=base_url()?>pelajaran/update/id',
                 //startTime: performance.now(),
                 type: 'POST',
                 data: formData,
@@ -266,11 +245,11 @@
 
             $('#frmAddPelajaran')[0].reset();
 
-            var nip = $(this).attr('data-nip');
+            var id = $(this).attr('data-id');
 
-            $.post("<?=base_url()?>pelajaran/delete/nip",
+            $.post("<?=base_url()?>pelajaran/delete/id",
             {
-                nip: nip
+                id: id
             },
             function(data){
                 console.log(data);

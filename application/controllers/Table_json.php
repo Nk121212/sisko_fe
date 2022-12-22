@@ -6,7 +6,7 @@ class Table_json extends SEKOLAH_Controller {
 
     private $limit = '10';
 
-	public function get_nilai_by_nik(){
+	public function get_nilai_by_nis(){
 
         // echo $this->limit;
         // exit;
@@ -28,9 +28,9 @@ class Table_json extends SEKOLAH_Controller {
         //     $sortingBy = 'description';
         // }
 
-        $nik = $this->input->post()['search']['nik'];
+        $nis = $this->input->post()['search']['nis'];
 
-        $resp = $this->M_curl->getNilaiByNik($nik, $offset, $this->limit);
+        $resp = $this->M_curl->getNilaiByNis($nis, $offset, $this->limit);
 
         $data = array(
             //'limit' => $this->limit,
@@ -116,12 +116,54 @@ class Table_json extends SEKOLAH_Controller {
 
             $data['data'][] = array(
                 'no' => $i,
-                'id_pelajaran'=> $res['id_pelajaran'],
-                'nama_pelajaran'=> $res['nama_pelajaran'],
-                'nip' => $res['nip'],
+                'id_pelajaran'=> $res['id'],
+                'nama_pelajaran'=> strtoupper($res['nama_pelajaran']),
+                'keterangan' => $res['keterangan'],
                 'action' => '
-                    <a class="btn btn-warning edit" data-id="'.$res['id_pelajaran'].'"><i class="fas fa-edit"></i></a>
-                    <a class="btn btn-danger delete" data-id="'.$res['id_pelajaran'].'"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    <a class="btn btn-warning edit" data-id="'.$res['id'].'"><i class="fas fa-edit"></i></a>
+                    <a class="btn btn-danger delete" data-id="'.$res['id'].'"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                '
+            );
+            
+            $i++;
+        }
+
+        echo json_encode($data, JSON_PRETTY_PRINT);
+    }
+
+    public function get_user_all(){
+
+        $start = $this->input->post('start') ? $this->input->post('start') : 0;
+
+        $resp = $this->M_curl->getUserAll($start, $this->limit);
+
+        $data = array(
+            //'limit' => $this->limit,
+            'real_resp' => $resp,
+            'postData' => $this->input->post(),
+            'recordsTotal'=> $resp['total_record'],
+            'recordsFiltered'=> $resp['total_record'],
+            'data'=>array()
+        );
+        
+        $i=1+(integer)$this->input->post('start');
+
+        foreach($resp['data'] as $res){
+
+            $image_location = ($res['image'] == "" || $res['image'] === null) ? "" : base_url().$res['image'];
+
+            $data['data'][] = array(
+                'no' => $i,
+                'id'=> $res['id'],
+                'username'=> strtoupper($res['username']),
+                'password' => $res['password'],
+                'nama'=> strtoupper($res['nama']),
+                'alamat' => $res['alamat'],
+                'no_telp'=> strtoupper($res['no_telp']),
+                'image' => '<image style="width: 50%;" src="'.$image_location.'" alt="No Image"></image>',
+                'action' => '
+                    <a class="btn btn-warning edit" data-id="'.$res['id'].'"><i class="fas fa-edit"></i></a>
+                    <a class="btn btn-danger delete" data-id="'.$res['id'].'"><i class="fa fa-trash" aria-hidden="true"></i></a>
                 '
             );
             

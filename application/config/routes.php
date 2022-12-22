@@ -79,5 +79,16 @@ $route['pelajaran/page'] = 'master/pelajaran_page';
 $route['getPelajaranAll'] = 'table_json/get_pelajaran_all'; //datatable
 $route['get_pelajaran_all'] = 'master/get_pelajaran_all'; //dipakai untuk global ex : select option
 $route['pelajaran/add'] = 'master/add_pelajaran';
+$route['pelajaran/get/id'] = 'master/get_pelajaran_by_id';
+$route['pelajaran/update/id'] = 'master/update_pelajaran_by_id';
+$route['pelajaran/delete/id'] = 'master/delete_pelajaran_by_id';
 
-$route['getNilaiByNik'] = 'table_json/get_nilai_by_nik';
+$route['user/page'] = 'master/user_page';
+$route['getUserAll'] = 'table_json/get_user_all'; //datatable
+$route['get_user_all'] = 'master/get_user_all'; //dipakai untuk global ex : select option
+$route['user/add'] = 'master/add_user';
+$route['user/get/id'] = 'master/get_user_by_id';
+$route['user/update/id'] = 'master/update_user_by_id';
+$route['user/delete/id'] = 'master/delete_user_by_id';
+
+$route['getNilaiByNis'] = 'table_json/get_nilai_by_nis';

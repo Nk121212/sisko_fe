@@ -6,6 +6,8 @@ class Home extends SEKOLAH_Controller {
 	public function dashboard(){
 
         $get_murid_by_user_logged_in = $this->M_curl->getMuridByUserLoggedIn();
+        //  print_r($get_murid_by_user_logged_in);
+        //  exit;
         $getOpsi = $this->M_curl->getAllOpsi();
 
         $totalAnak = count($get_murid_by_user_logged_in['data']);

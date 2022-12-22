@@ -65,7 +65,7 @@ Launch demo modal
                         </tbody>
                     </table>
                 </div>
-                <input type="hidden" id="nik_used">
+                <input type="hidden" id="nis_used">
             </div>
             <!-- <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -87,11 +87,11 @@ Launch demo modal
         <!-- <?=print_r($value);?> -->
         <div class="col-<?=$div?>">
             <div class="card text-center shadow p-3 mb-5 bg-white rounded" style="width: 100%;">
-                <img class="card-img-top img-fluid img-rounded" src="<?=$value['image']?>">
+                <img class="card-img-top img-fluid img-rounded" src="<?=$value['image']?>" onError="this.onerror=null; this.src='<?=base_url()?>upload/Image_not_available.png';">
                 <div class="card-body">
                     <h5 class="card-title"><?=$value['nama']?></h5>
                     <p class="card-text h5"><?=$value['alamat']?></p>
-                    <a class="btn btn-primary" id="<?=$value['nik']?>" data-toggle="modal" data-target="#modalDashboard">Detail</a>
+                    <a class="btn btn-primary" id="<?=$value['nis']?>" data-toggle="modal" data-target="#modalDashboard">Detail</a>
                 </div>
             </div>
         </div>
@@ -114,12 +114,12 @@ Launch demo modal
         $('#modalDashboard').on('shown.bs.modal', function (e) {
 
             $('#id_pelajaran').val('').trigger('change');
-            $('input#nik_used').val("");
+            $('input#nis_used').val("");
             //$('#myInput').trigger('focus')
             var target = $(e.relatedTarget);
-            var nik = target.attr("id");
+            var nis = target.attr("id");
             //alert(nik);
-            $('#nik_used').val(nik);
+            $('#nis_used').val(nis);
         });
 
         $('#id_pelajaran').change(function(){
@@ -140,7 +140,7 @@ Launch demo modal
                 }else if(divSelected == "NILAI"){
                     $('div.ABSEN').removeClass("show");
                     var table = 'tblNilai';
-                    var api = 'getNilaiByNik';
+                    var api = 'getNilaiByNis';
                 }
 
                 $('div.'+divSelected).addClass("show");
@@ -165,7 +165,7 @@ Launch demo modal
             ajax: {
                 url: "<?=base_url()?>"+api,
                 data: function(data){
-                    data.search.nik = $("#nik_used").val();
+                    data.search.nis = $("#nis_used").val();
                 },
                 dataSrc: 'data',
             },
