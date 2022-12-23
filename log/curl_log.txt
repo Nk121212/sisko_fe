@@ -7,10 +7,10 @@ User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 
 * Mark bundle as not supporting multiuse
 < HTTP/1.1 200 OK
-< Date: Fri, 23 Dec 2022 07:43:30 GMT
+< Date: Fri, 23 Dec 2022 07:57:38 GMT
 < Server: Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33
 < X-Powered-By: PHP/7.4.33
-< Set-Cookie: ci_session=3ra91cckps29kf5cp1u7oc83ns81mrpk; expires=Fri, 23-Dec-2022 09:43:30 GMT; Max-Age=7200; path=/; HttpOnly; SameSite=Lax
+< Set-Cookie: ci_session=2g4e7pbme5l1ig64q3fhrd76udopchnh; expires=Fri, 23-Dec-2022 09:57:38 GMT; Max-Age=7200; path=/; HttpOnly; SameSite=Lax
 < Expires: Thu, 19 Nov 1981 08:52:00 GMT
 < Cache-Control: no-store, no-cache, must-revalidate
 < Pragma: no-cache
