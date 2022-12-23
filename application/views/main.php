@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Dashboard</title>
+    <title>Monitoring</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?=base_url()?>plugins/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
