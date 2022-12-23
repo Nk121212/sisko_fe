@@ -11,6 +11,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>ROLE</th>
                             <th>USERNAME</th>
                             <th>NAMA</th>
                             <th>ALAMAT</th>
@@ -42,7 +43,15 @@
                     
                     <div class="col-12 row">
                         
-                        
+                        <div class="form-group col-12">
+                            <label for="id_role">Role</label>
+                            <select name="id_role" id="id_role" class="form-control">
+                                <option value="" disabled selected>Pilih Role</option>
+                                <?php foreach ($role as $key => $value):?>
+                                    <option value="<?=$value['id']?>"><?=strtoupper($value['nama_role'])?></option>
+                                <?php endforeach;?>
+                            </select>
+                        </div>
                         <div class="form-group col-6">
                             <label for="username">Username</label>
                             <input type="text" class="form-control" id="username" name="username" required>
@@ -95,6 +104,15 @@
                     
                     <div class="col-12 row">
                         <input type="hidden" name="id" id="id">
+                        <div class="form-group col-12">
+                            <label for="id_role">Role</label>
+                            <select name="id_role" id="id_role" class="form-control">
+                                <option value="" disabled selected>Pilih Role</option>
+                                <?php foreach ($role as $key => $value):?>
+                                    <option value="<?=$value['id']?>"><?=strtoupper($value['nama_role'])?></option>
+                                <?php endforeach;?>
+                            </select>
+                        </div>
                         <div class="form-group col-6">
                             <label for="username">Username</label>
                             <input type="text" class="form-control" id="username" name="username">
@@ -139,7 +157,7 @@
 <script>
     $(document).ready(function(){
 
-        //option_all('');
+        //select_role('id_role', 'get_role_all');
 
         var dataTable = $('#tbluser').DataTable( {
 
@@ -170,6 +188,7 @@
             serverMethod: 'post',
             columns: [
                 {data: "no", orderable:false, width: "30px", className: "dt-body-center"},
+                {data: "role", orderable:false},
                 {data: "username", orderable:false},
                 {data: "nama", orderable:false},
                 {data: "alamat", orderable:false},
@@ -233,6 +252,7 @@
 
                     $('.up_mod input#'+k).val(v);
                     $('.up_mod textarea#'+k).text(v);
+                    $('.up_mod select#'+k).val(v);
                     $('#modalUserUpdate').modal('show');
 
 

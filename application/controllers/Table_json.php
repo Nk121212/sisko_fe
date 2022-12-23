@@ -155,7 +155,8 @@ class Table_json extends SEKOLAH_Controller {
             $data['data'][] = array(
                 'no' => $i,
                 'id'=> $res['id'],
-                'username'=> strtoupper($res['username']),
+                'role'=> strtoupper($res['role']),
+                'username'=> $res['username'],
                 'password' => $res['password'],
                 'nama'=> strtoupper($res['nama']),
                 'alamat' => $res['alamat'],

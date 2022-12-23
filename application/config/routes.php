@@ -116,3 +116,6 @@ $route['role/update/id'] = 'master/update_role_by_id';
 $route['role/delete/id'] = 'master/delete_role_by_id';
 
 $route['getNilaiByNis'] = 'table_json/get_nilai_by_nis';
+
+$route['absen/page'] = 'transaksi/absen_page';
+$route['nilai/page'] = 'transaksi/nilai_page';

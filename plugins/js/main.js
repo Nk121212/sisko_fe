@@ -28,7 +28,7 @@ function swal_response_delete(code, title, text){
     })
 }
 
-function option_all(idSelect, endPoint){
+function select_role(idSelect, endPoint){
 
     $.post(base_url+endPoint,
     {
@@ -36,15 +36,18 @@ function option_all(idSelect, endPoint){
     },
     function(data){
         console.log(data);
-        for (let index = 0; index < data.data.length; index++) {
+        //for (let index = 0; index < data.data.length; index++) {
             //const element = array[index];
-            $.each(data.data[index], function(k, v) {
-                /// do stuff
-                //console.log(k);
-                //console.log(v);
+            if(data.code == '200'){
 
-            });
-        }
+                $('#'+idSelect).append('<option value="" disabled selected>Pilih Role</option>');
+
+                $.each(data.data, function(k, v) {
+                    $('#'+idSelect).append('<option value="'+v.id+'">'+v.nama_role+'</option>');
+                });
+                
+            }
+        //}
         
         //alert("Data: " + data + "\nStatus: " + status);
     });

@@ -5,12 +5,17 @@ class Master extends SEKOLAH_Controller {
 
 	public function users_page(){
 
+        $role = $this->M_curl->getRoleAll("", "");
+        //print_r($role);
+        $list_role = ($role['code'] == '200') ? $role['data'] : array();
+
         $data = array(
             'page' => 'logged_in/master/user',
             'title' => 'Master Users',
             'breadcrumb_1' => "Master",
             'breadcrumb_2' => "User",
-            'breadcrumb_3' => ""
+            'breadcrumb_3' => "",
+            'role' => $list_role
         );
 
         $this->load->view("main", $data);
@@ -625,4 +630,6 @@ class Master extends SEKOLAH_Controller {
 
         echo json_encode($resp);
     }
+
+    
 }
