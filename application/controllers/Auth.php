@@ -19,16 +19,24 @@ class Auth extends SEKOLAH_Controller {
 
 		// $this->load->model('M_curl');
 		$resp = $this->M_curl->login($this->input->post('username'), $this->input->post('password'));
+		// var_dump($resp);
+		// exit;
 
 		if($resp['code'] == 200){
 
-			$this->session->set_userdata(
-				array(
-					'login' => true,
-					'id' => $resp['data']['id_user'],
-					'username' => $resp['data']['username']
-				)
-			);
+			$data = array();
+			foreach ($resp['data'] as $key => $value) {
+				# code...
+				$data[$key] = $value;
+
+			}
+
+			$data['login'] = true;
+			unset($data['password']);
+			
+			$this->session->set_userdata($data);
+			// print_r($this->session->userdata());
+			// exit;
 
 			redirect("dashboard");
 
