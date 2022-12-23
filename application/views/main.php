@@ -90,7 +90,7 @@
                 <div id="collapseTwo" class="collapse <?=(activeClassMethode()['class'] == 'master') ? 'show' : ''?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Master Menu:</h6>
-                        <?php foreach(getMenu() as $key=>$value): ?>
+                        <?php foreach($this->session->userdata('menu') as $key=>$value): ?>
                             <a class="<?=$value['class']?> <?=($value['controller'] == activeClassMethode()['class'] && $value['function'] == activeClassMethode()['methode']) ? 'active' : ''?>" href="<?=base_url()?><?=$value['href']?>"><?=$value['menu']?></a>
                         <?php endforeach; ?>
                     </div>
