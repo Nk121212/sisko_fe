@@ -1,20 +1,20 @@
 *   Trying ::1:80...
 * Connected to localhost (::1) port 80 (#0)
-> GET /sekolah_be/get/murid/byClass?id_tingkat=1&id_kelas=3 HTTP/1.1
+> GET /sekolah_be/getOpsi HTTP/1.1
 Host: localhost
 Accept: */*
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36
 
 * Mark bundle as not supporting multiuse
 < HTTP/1.1 200 OK
-< Date: Wed, 28 Dec 2022 15:13:06 GMT
+< Date: Wed, 28 Dec 2022 17:08:12 GMT
 < Server: Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.33
 < X-Powered-By: PHP/7.4.33
-< Set-Cookie: ci_session=9i6ivtuu8fmsrvvquin7ll4s4phluqbc; expires=Wed, 28-Dec-2022 17:13:06 GMT; Max-Age=7200; path=/; HttpOnly; SameSite=Lax
+< Set-Cookie: ci_session=djnrh2oee3spjk5qld2droot3lh8tjbf; expires=Wed, 28-Dec-2022 19:08:12 GMT; Max-Age=7200; path=/; HttpOnly; SameSite=Lax
 < Expires: Thu, 19 Nov 1981 08:52:00 GMT
 < Cache-Control: no-store, no-cache, must-revalidate
 < Pragma: no-cache
-< Content-Length: 824
+< Content-Length: 417
 < Content-Type: application/json
 < 
 * Connection #0 to host localhost left intact
