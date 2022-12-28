@@ -1,12 +1,12 @@
 <link href="<?=base_url()?>plugins/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-<div class="col-12">
+<div class="col-sm-12">
     <div class="card" style="width: 100%;">
         <div class="card-body">
-            <div class="col-12 text-right">
+            <div class="col-sm-12 text-right">
                 <button class="btn btn-primary" data-toggle="modal" data-target="#modalJenisNilai"><i class="fa fa-plus" aria-hidden="true"></i> <?=$breadcrumb_2?></button>
             </div>
-            <div class="col-12 table-responsive NILAI">
+            <div class="col-sm-12 table-responsive NILAI">
                 <table class="table table-bordered text-center" id="tblJenisNilai">
                     <thead>
                         <tr>
@@ -37,7 +37,7 @@
             <form id="frmAddJenisNilai">  
                 <div class="modal-body">
                     
-                    <div class="col-12 row">
+                    <div class="col-sm-12 row">
                         
                         
                         <div class="form-group col-6">
@@ -76,7 +76,7 @@
             <form id="frmUpdateJenisNilai">  
                 <div class="modal-body up_mod">
                     
-                    <div class="col-12 row">
+                    <div class="col-sm-12 row">
                         <input type="hidden" id="id" name="id">
                         <div class="form-group col-6">
                             <label for="jenis_nilai">Jenis Nilai</label>

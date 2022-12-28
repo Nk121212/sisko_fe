@@ -98,6 +98,7 @@ $route['murid/add'] = 'master/add_murid';
 $route['murid/get/id'] = 'master/get_murid_by_id';
 $route['murid/update/id'] = 'master/update_murid_by_id';
 $route['murid/delete/id'] = 'master/delete_murid_by_id';
+$route['murid/get/class'] = 'master/get_murid_by_class';
 
 $route['option/page'] = 'master/option_page';
 $route['getOptionAll'] = 'table_json/get_option_all'; //datatable
@@ -115,7 +116,25 @@ $route['role/get/id'] = 'master/get_role_by_id';
 $route['role/update/id'] = 'master/update_role_by_id';
 $route['role/delete/id'] = 'master/delete_role_by_id';
 
+$route['tingkat/page'] = 'master/tingkat_page';
+$route['getTingkatAll'] = 'table_json/get_tingkat_all'; //datatable
+$route['get_tingkat_all'] = 'master/get_tingkat_all'; //dipakai untuk global ex : select option
+$route['tingkat/add'] = 'master/add_tingkat';
+$route['tingkat/get/id'] = 'master/get_tingkat_by_id';
+$route['tingkat/update/id'] = 'master/update_tingkat_by_id';
+$route['tingkat/delete/id'] = 'master/delete_tingkat_by_id';
+
+$route['kelas/page'] = 'master/kelas_page';
+$route['getKelasAll'] = 'table_json/get_kelas_all'; //datatable
+$route['get_kelas_all'] = 'master/get_kelas_all'; //dipakai untuk global ex : select option
+$route['kelas/add'] = 'master/add_kelas';
+$route['kelas/get/id'] = 'master/get_kelas_by_id';
+$route['kelas/update/id'] = 'master/update_kelas_by_id';
+$route['kelas/delete/id'] = 'master/delete_kelas_by_id';
+
 $route['getNilaiByNis'] = 'table_json/get_nilai_by_nis';
 
 $route['absen/page'] = 'transaksi/absen_page';
+$route['absen/add'] = 'transaksi/add_absen';
+
 $route['nilai/page'] = 'transaksi/nilai_page';

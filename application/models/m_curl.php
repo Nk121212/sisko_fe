@@ -19,7 +19,7 @@
 
         public function getMuridByUserLoggedIn(){
             
-            $res = cURL(getConfig('api_url').'getmurid?id='.$this->session->userdata('id'));
+            $res = cURL(getConfig('api_url').'getmurid?id='.$this->session->userdata('id_user'));
             //return $res;
             return json_decode($res, true);
         }
@@ -337,6 +337,113 @@
             
             $res = cURL(getConfig('api_url').'delete/role/byId/'.$id, array(), 'custom', $header, 'DELETE');
             return json_decode($res, true);
+        }
+
+        //crud tingkat
+
+        public function getTingkatAll($start, $limit, $orderBy="", $orderType=""){
+            
+            $res = cURL(getConfig('api_url').'get/tingkat/all?start='.$start.'&limit='.$limit.'&order_by='.$orderBy.'&order_type='.$orderType);
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function addTingkat($body){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'addtingkat', $body, 'post', $header);
+
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function getTingkatById($id){
+            
+            $res = cURL(getConfig('api_url').'get/tingkat/byId?id='.$id);
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function updateTingkatById($id, $body){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'patch/tingkat/byId/'.$id, $body, 'custom', $header, 'PATCH');
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function deleteTingkatById($id){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'delete/tingkat/byId/'.$id, array(), 'custom', $header, 'DELETE');
+            return json_decode($res, true);
+        }
+
+        //crud kelas
+
+        public function getKelasAll($start, $limit, $orderBy="", $orderType=""){
+            
+            $res = cURL(getConfig('api_url').'get/kelas/all?start='.$start.'&limit='.$limit.'&order_by='.$orderBy.'&order_type='.$orderType);
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function addKelas($body){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'addkelas', $body, 'post', $header);
+
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function getKelasById($id){
+            
+            $res = cURL(getConfig('api_url').'get/kelas/byId?id='.$id);
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function updateKelasById($id, $body){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'patch/kelas/byId/'.$id, $body, 'custom', $header, 'PATCH');
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function deleteKelasById($id){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'delete/kelas/byId/'.$id, array(), 'custom', $header, 'DELETE');
+            return json_decode($res, true);
+        }
+
+        public function getMuridByClass($tingkat, $kelas){
+            
+            $res = cURL(getConfig('api_url').'get/murid/byClass?id_tingkat='.$tingkat.'&id_kelas='.$kelas);
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function addAbsen($body){
+            
+            // $res = cURL(getConfig('api_url').'addabsen?id_murid='.$id_murid.'&status='.$status.'&keterangan='.$keterangan);
+            // //return $res;
+            // return json_decode($res, true);
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'addabsen', $body, 'post', $header);
+
+            //return $res;
+            return json_decode($res, true);
+
         }
         
     }

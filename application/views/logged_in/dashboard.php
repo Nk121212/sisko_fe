@@ -36,7 +36,7 @@ Launch demo modal
                     <?php endforeach; ?>
                 </select>
                 <hr>
-                <div class="col-12 table-responsive NILAI">
+                <div class="col-sm-12 table-responsive NILAI">
                     <table class="table table-bordered" id="tblNilai">
                         <thead>
                             <tr>
@@ -51,7 +51,7 @@ Launch demo modal
                     </table>
                 </div>
 
-                <div class="col-12 table-responsive ABSEN">
+                <div class="col-sm-12 table-responsive ABSEN">
                     <table class="table table-bordered" id="tblAbsen">
                         <thead>
                             <tr>
@@ -85,12 +85,13 @@ Launch demo modal
 <div class="row">
     <?php foreach($data_murid as $key=>$value): ?>
         <!-- <?=print_r($value);?> -->
-        <div class="col-<?=$div?>">
+        <div class="col-sm-<?=$div?>">
             <div class="card text-center shadow p-3 mb-5 bg-white rounded" style="width: 100%;">
                 <img class="card-img-top img-fluid img-rounded" src="<?=base_url()?><?=$value['image']?>" onError="this.onerror=null; this.src='<?=base_url()?>upload/Image_not_available.png';">
-                <div class="card-body">
-                    <h5 class="card-title"><?=$value['nama']?></h5>
-                    <p class="card-text h5"><?=$value['alamat']?></p>
+                <div class="card-body text-center">
+                    <!-- <h5 class="card-title text-justify"><?=$value['nama']?></h5> -->
+                    <p><?=$value['nama']?></p>
+                    <p><?=$value['alamat']?></p>
                     <a class="btn btn-primary" id="<?=$value['nis']?>" data-toggle="modal" data-target="#modalDashboard">Detail</a>
                 </div>
             </div>

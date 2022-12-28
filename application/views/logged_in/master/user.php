@@ -1,12 +1,12 @@
 <link href="<?=base_url()?>plugins/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-<div class="col-12">
+<div class="col-sm-12">
     <div class="card" style="width: 100%;">
         <div class="card-body">
-            <div class="col-12 text-right">
+            <div class="col-sm-12 text-right">
                 <button class="btn btn-primary" data-toggle="modal" data-target="#modalUser"><i class="fa fa-plus" aria-hidden="true"></i> <?=$breadcrumb_2?></button>
             </div>
-            <div class="col-12 table-responsive NILAI">
+            <div class="col-sm-12 table-responsive NILAI">
                 <table class="table table-bordered text-center" id="tbluser">
                     <thead>
                         <tr>
@@ -41,9 +41,9 @@
             <form id="frmAdduser">  
                 <div class="modal-body">
                     
-                    <div class="col-12 row">
+                    <div class="col-sm-12 row">
                         
-                        <div class="form-group col-12">
+                        <div class="form-group col-sm-12">
                             <label for="id_role">Role</label>
                             <select name="id_role" id="id_role" class="form-control">
                                 <option value="" disabled selected>Pilih Role</option>
@@ -102,9 +102,9 @@
             <form id="frmUpdateuser">  
                 <div class="modal-body up_mod">
                     
-                    <div class="col-12 row">
+                    <div class="col-sm-12 row">
                         <input type="hidden" name="id" id="id">
-                        <div class="form-group col-12">
+                        <div class="form-group col-sm-12">
                             <label for="id_role">Role</label>
                             <select name="id_role" id="id_role" class="form-control">
                                 <option value="" disabled selected>Pilih Role</option>

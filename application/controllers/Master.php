@@ -99,6 +99,34 @@ class Master extends SEKOLAH_Controller {
         $this->load->view("main", $data);
     }
 
+    public function tingkat_page(){
+
+        $data = array(
+            'page' => 'logged_in/master/tingkat',
+            'title' => 'Master Tingkat',
+            'breadcrumb_1' => "Master",
+            'breadcrumb_2' => "Tingkat",
+            'breadcrumb_3' => ""
+        );
+
+        $this->load->view("main", $data);
+    }
+
+    public function kelas_page(){
+
+        $data = array(
+            'page' => 'logged_in/master/kelas',
+            'title' => 'Master Kelas',
+            'breadcrumb_1' => "Master",
+            'breadcrumb_2' => "Kelas",
+            'breadcrumb_3' => ""
+        );
+
+        $this->load->view("main", $data);
+    }
+
+    
+
     //guru 
     
     public function add_guru(){
@@ -627,6 +655,131 @@ class Master extends SEKOLAH_Controller {
         $id = $this->input->post('id');
 
         $resp = $this->M_curl->deleteRoleById($id);
+
+        echo json_encode($resp);
+    }
+
+    //tingkat
+
+    public function get_tingkat_all(){
+
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->getTingkatAll("", "");
+
+        echo json_encode($resp);
+    }
+
+    public function add_tingkat(){
+
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->addTingkat($this->input->post());
+
+        echo json_encode($resp);
+    }
+
+    public function get_tingkat_by_id(){
+
+        //print_r($this->input->post());exit;
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->getTingkatById($this->input->post('id'));
+
+        echo json_encode($resp);
+
+    }
+
+    public function update_tingkat_by_id(){
+        //print_r($this->input->post());
+        header('Content-Type: application/json');
+
+        $id = $this->input->post('id');
+        unset($_POST['id']);
+
+        // echo $id;
+        // exit;
+
+        $resp = $this->M_curl->updateTingkatById($id, $this->input->post());
+
+        echo json_encode($resp);
+    }
+
+    public function delete_tingkat_by_id(){
+        //print_r($this->input->post());
+        header('Content-Type: application/json');
+
+        $id = $this->input->post('id');
+
+        $resp = $this->M_curl->deleteTingkatById($id);
+
+        echo json_encode($resp);
+    }
+
+    //kelas
+
+    public function get_kelas_all(){
+
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->getKelasAll("", "");
+
+        echo json_encode($resp);
+    }
+
+    public function add_kelas(){
+
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->addKelas($this->input->post());
+
+        echo json_encode($resp);
+    }
+
+    public function get_kelas_by_id(){
+
+        //print_r($this->input->post());exit;
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->getKelasById($this->input->post('id'));
+
+        echo json_encode($resp);
+
+    }
+
+    public function update_kelas_by_id(){
+        //print_r($this->input->post());
+        header('Content-Type: application/json');
+
+        $id = $this->input->post('id');
+        unset($_POST['id']);
+
+        // echo $id;
+        // exit;
+
+        $resp = $this->M_curl->updateKelasById($id, $this->input->post());
+
+        echo json_encode($resp);
+    }
+
+    public function delete_kelas_by_id(){
+        //print_r($this->input->post());
+        header('Content-Type: application/json');
+
+        $id = $this->input->post('id');
+
+        $resp = $this->M_curl->deleteKelasById($id);
+
+        echo json_encode($resp);
+    }
+
+    public function get_murid_by_class(){
+        header('Content-Type: application/json');
+
+        $tingkat = $this->input->post("id_tingkat");
+        $kelas = $this->input->post("id_kelas");
+
+        $resp = $this->M_curl->getMuridByClass($tingkat, $kelas);
 
         echo json_encode($resp);
     }
