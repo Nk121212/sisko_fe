@@ -58,6 +58,59 @@ class Table_json extends SEKOLAH_Controller {
         echo json_encode($data, JSON_PRETTY_PRINT);
     }
 
+    public function get_absen_by_nis(){
+
+        // echo $this->limit;
+        // exit;
+
+        $offset = $this->input->post('start') ? $this->input->post('start') : 0;
+
+        // $sorting = $this->input->post('order')[0]['column'];
+        // $sortingType = $this->input->post('order')[0]['dir'];
+
+        // if($sorting == '1'){
+        //     $sortingBy = 'app_name';
+        // }elseif ($sorting == '2') {
+        //     $sortingBy = 'doc_type';
+        // }elseif ($sorting == '4') {
+        //     $sortingBy = 'requested';
+        // }elseif ($sorting == '5') {
+        //     $sortingBy = 'status';
+        // }elseif ($sorting == '6') {
+        //     $sortingBy = 'description';
+        // }
+
+        $nis = $this->input->post()['search']['nis'];
+
+        $resp = $this->M_curl->getAbsenByNis($nis, $offset, $this->limit);
+
+        $data = array(
+            //'limit' => $this->limit,
+            'real_resp' => $resp,
+            'postData' => $this->input->post(),
+            'recordsTotal'=> $resp['total_record'],
+            'recordsFiltered'=> $resp['total_record'],
+            'data'=>array()
+        );
+        
+        $i=1+(integer)$this->input->post('start');
+
+        foreach($resp['data'] as $res){
+
+            $data['data'][] = array(
+                'no' => $i,
+                'nama_pelajaran'=> strtoupper($res['nama_pelajaran']),
+                'nama'=> $res['nama'],
+                'date'=> $res['date'],
+                'status'=> $res['status']
+            );
+            
+            $i++;
+        }
+
+        echo json_encode($data, JSON_PRETTY_PRINT);
+    }
+
     public function get_guru_all(){
 
         $start = $this->input->post('start') ? $this->input->post('start') : 0;

@@ -20,7 +20,7 @@ Launch demo modal
 
 <!-- Modal -->
 <div class="modal fade" id="modalDashboard" tabindex="-1" role="dialog" aria-labelledby="modalDashboard" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalDashboardLabel">Modal <?=$breadcrumb_2?></h5>
@@ -54,9 +54,11 @@ Launch demo modal
                 <div class="col-sm-12 table-responsive ABSEN">
                     <table class="table table-bordered" id="tblAbsen">
                         <thead>
-                            <tr>
-                                <th></th>
-                            </tr>
+                            <th>No</th>
+                            <th>Tanggal</th>
+                            <th>Nama</th>
+                            <th>Nama Pelajaran</th>
+                            <th>Status</th>
                         </thead>
                         <tbody>
                             <tr>
@@ -137,7 +139,7 @@ Launch demo modal
                 if(divSelected == "ABSEN"){
                     $('div.NILAI').removeClass("show");
                     var table = 'tblAbsen';
-                    var api = '';
+                    var api = 'getAbsenByNis';
                 }else if(divSelected == "NILAI"){
                     $('div.ABSEN').removeClass("show");
                     var table = 'tblNilai';
@@ -188,12 +190,26 @@ Launch demo modal
             pageLength: 10,
             serverSide: true,
             serverMethod: 'post',
-            columns: [
+            columns: fetchTable(table)
+        });
+    }
+
+    function fetchTable(table){
+        if(table == "tblNilai"){
+            return [
                 {data: "no", orderable:false, width: "30px", className: "dt-body-center"},
                 {data: "nama_pelajaran", orderable:false},
                 {data: "jenis_nilai", orderable:false},
                 {data: "nilai", orderable:false}
-            ]
-        });
+            ];
+        }else{
+            return [
+                {data: "no", orderable:false, width: "30px", className: "dt-body-center"},
+                {data: "date", orderable:false},
+                {data: "nama", orderable:false},
+                {data: "nama_pelajaran", orderable:false},
+                {data: "status", orderable:false}
+            ];
+        }
     }
 </script>

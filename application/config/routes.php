@@ -152,4 +152,6 @@ $route['absen/page'] = 'transaksi/absen_page';
 $route['absen/add'] = 'transaksi/add_absen';
 
 $route['nilai/page'] = 'transaksi/nilai_page';
+$route['nilai/add'] = 'transaksi/add_nilai';
 $route['getNilaiByNis'] = 'table_json/get_nilai_by_nis';
+$route['getAbsenByNis'] = 'table_json/get_absen_by_nis';

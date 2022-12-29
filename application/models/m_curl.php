@@ -38,6 +38,13 @@
             return json_decode($res, true);
         }
 
+        public function getAbsenByNis($nis, $offset, $limit, $orderBy="", $orderType=""){
+            
+            $res = cURL(getConfig('api_url').'getAbsenByNis?nis='.$nis.'&offset='.$offset.'&limit='.$limit.'&order_by='.$orderBy.'&order_type='.$orderType);
+            //return $res;
+            return json_decode($res, true);
+        }
+
         //crud guru
 
         public function getGuruAll($start, $limit, $orderBy="", $orderType=""){
@@ -440,6 +447,20 @@
             $header = array();
             
             $res = cURL(getConfig('api_url').'addabsen', $body, 'post', $header);
+
+            //return $res;
+            return json_decode($res, true);
+
+        }
+
+        public function addNilai($body){
+            
+            // $res = cURL(getConfig('api_url').'addabsen?id_murid='.$id_murid.'&status='.$status.'&keterangan='.$keterangan);
+            // //return $res;
+            // return json_decode($res, true);
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'addnilai', $body, 'post', $header);
 
             //return $res;
             return json_decode($res, true);

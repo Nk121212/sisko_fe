@@ -64,15 +64,16 @@
                             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                         </div>
                         <div class="form-group col-sm-6">
-                            <label for="keterangan">Keterangan</label>
-                            <input type="text" class="form-control" id="keterangan" name="keterangan">
-                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                        </div>
-                        <div class="form-group col-sm-6">
                             <label for="status">Status</label>
                             <input type="text" class="form-control" id="status" name="status">
                             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                         </div>
+                        <div class="form-group col-sm-6">
+                            <label for="keterangan">Keterangan</label>
+                            <textarea type="text" class="form-control" id="keterangan" name="keterangan"></textarea>
+                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                        </div>
+                        
                         
 
                     </div>
@@ -126,13 +127,13 @@
                             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                         </div>
                         <div class="form-group col-sm-6">
-                            <label for="keterangan">Keterangan</label>
-                            <input type="text" class="form-control" id="keterangan" name="keterangan">
+                            <label for="status">Status</label>
+                            <input type="text" class="form-control" id="status" name="status">
                             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                         </div>
                         <div class="form-group col-sm-6">
-                            <label for="status">Status</label>
-                            <input type="text" class="form-control" id="status" name="status">
+                            <label for="keterangan">Keterangan</label>
+                            <textarea type="text" class="form-control" id="keterangan" name="keterangan"></textarea>
                             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                         </div>
                         
@@ -244,7 +245,9 @@
                     // console.log(v);
 
                     $('.up_mod input#'+k).val(v);
+                    $('.up_mod select#'+k).val(v);
                     $('.up_mod textarea#'+k).text(v);
+                    $('.up_mod textarea#'+k).val(v);
                     $('#modalAksesUpdate').modal('show');
 
 

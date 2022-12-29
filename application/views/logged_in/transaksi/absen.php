@@ -3,7 +3,7 @@
 
         <div class="col-sm-12">
             <div class="row">
-                <div class="form-group col-4">
+                <div class="form-group col-3">
                     <label for="id_tingkat">Tingkat</label>
                     <select name="id_tingkat" id="id_tingkat" class="form-control" required>
                         <option value="" disabled selected>Pilih Tingkat</option>
@@ -14,7 +14,7 @@
                     <!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"> -->
                     <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                 </div>
-                <div class="form-group col-4">
+                <div class="form-group col-3">
                     <label for="id_kelas">Kelas</label>
                     <select name="id_kelas" id="id_kelas" class="form-control" required>
                         <option value="" disabled selected>Pilih Kelas</option>
@@ -24,11 +24,21 @@
                     </select>
                     <!-- <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> -->
                 </div>
+                <div class="form-group col-3">
+                    <label for="id_pelajaran">Pelajaran</label>
+                    <select name="id_pelajaran" id="id_pelajaran" class="form-control" required>
+                        <option value="" disabled selected>Pilih Pelajaran</option>
+                        <?php foreach($list_pelajaran as $key=>$value): ?>
+                            <option value="<?=$value['id']?>"><?=strtoupper($value['nama_pelajaran'])?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <!-- <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> -->
+                </div>
                 <!-- <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div> -->
-                <div class="col-4 d-flex p-2" style="margin-top: 3%;">
+                <div class="col-sm-3 d-flex p-2" style="margin-top: 1%;">
                     <button type="submit" class="btn btn-primary">Search</button>
                 </div>
                 
@@ -87,7 +97,11 @@
         });
 
         function fetch_resp(data){
-            
+            var id_pelajaran = $("#id_pelajaran").val();
+            if(id_pelajaran == "" || id_pelajaran === null){
+                alert('silakan pilih pelajaran !');
+                $("#id_pelajaran").focus();
+            }
             for (let index = 0; index < data.length; index++) {
                 const element = data[index];
 
@@ -125,7 +139,8 @@
         {
             id_murid: id_murid,
             status: status,
-            keterangan: $('#keterangan_'+number).val()
+            keterangan: $('#keterangan_'+number).val(),
+            id_pelajaran: $("#id_pelajaran").val()
         },
         function(data){
             console.log(data);
