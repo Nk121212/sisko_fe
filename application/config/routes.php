@@ -132,9 +132,24 @@ $route['kelas/get/id'] = 'master/get_kelas_by_id';
 $route['kelas/update/id'] = 'master/update_kelas_by_id';
 $route['kelas/delete/id'] = 'master/delete_kelas_by_id';
 
-$route['getNilaiByNis'] = 'table_json/get_nilai_by_nis';
+$route['menu/page'] = 'master/menu_page';
+$route['getMenuAll'] = 'table_json/get_menu_all'; //datatable
+$route['get_menu_all'] = 'master/get_menu_all'; //dipakai untuk global ex : select option
+$route['menu/add'] = 'master/add_menu';
+$route['menu/get/id'] = 'master/get_menu_by_id';
+$route['menu/update/id'] = 'master/update_menu_by_id';
+$route['menu/delete/id'] = 'master/delete_menu_by_id';
+
+$route['akses/page'] = 'master/akses_page';
+$route['getAksesAll'] = 'table_json/get_akses_all'; //datatable
+$route['get_akses_all'] = 'master/get_akses_all'; //dipakai untuk global ex : select option
+$route['akses/add'] = 'master/add_akses';
+$route['akses/get/id'] = 'master/get_akses_by_id';
+$route['akses/update/id'] = 'master/update_akses_by_id';
+$route['akses/delete/id'] = 'master/delete_akses_by_id';
 
 $route['absen/page'] = 'transaksi/absen_page';
 $route['absen/add'] = 'transaksi/add_absen';
 
 $route['nilai/page'] = 'transaksi/nilai_page';
+$route['getNilaiByNis'] = 'table_json/get_nilai_by_nis';

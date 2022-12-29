@@ -125,6 +125,37 @@ class Master extends SEKOLAH_Controller {
         $this->load->view("main", $data);
     }
 
+    public function menu_page(){
+
+        $data = array(
+            'page' => 'logged_in/master/menu',
+            'title' => 'Master Menu',
+            'breadcrumb_1' => "Master",
+            'breadcrumb_2' => "Menu",
+            'breadcrumb_3' => ""
+        );
+
+        $this->load->view("main", $data);
+    }
+
+    public function akses_page(){
+
+        $role = $this->M_curl->getRoleAll("", "");
+        $menu = $this->M_curl->getMenuAll("", "");
+
+        $data = array(
+            'page' => 'logged_in/master/akses',
+            'title' => 'Master Akses',
+            'breadcrumb_1' => "Master",
+            'breadcrumb_2' => "Akses",
+            'breadcrumb_3' => "",
+            'list_role' => $role['data'],
+            'list_menu' => $menu['data'],
+        );
+
+        $this->load->view("main", $data);
+    }
+
     
 
     //guru 
@@ -769,6 +800,120 @@ class Master extends SEKOLAH_Controller {
         $id = $this->input->post('id');
 
         $resp = $this->M_curl->deleteKelasById($id);
+
+        echo json_encode($resp);
+    }
+
+    //menu
+
+    public function get_menu_all(){
+
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->getMenuAll("", "");
+
+        echo json_encode($resp);
+    }
+
+    public function add_menu(){
+
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->addMenu($this->input->post());
+
+        echo json_encode($resp);
+    }
+
+    public function get_menu_by_id(){
+
+        //print_r($this->input->post());exit;
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->getMenuById($this->input->post('id'));
+
+        echo json_encode($resp);
+
+    }
+
+    public function update_menu_by_id(){
+        //print_r($this->input->post());
+        header('Content-Type: application/json');
+
+        $id = $this->input->post('id');
+        unset($_POST['id']);
+
+        // echo $id;
+        // exit;
+
+        $resp = $this->M_curl->updateMenuById($id, $this->input->post());
+
+        echo json_encode($resp);
+    }
+
+    public function delete_menu_by_id(){
+        //print_r($this->input->post());
+        header('Content-Type: application/json');
+
+        $id = $this->input->post('id');
+
+        $resp = $this->M_curl->deleteMenuById($id);
+
+        echo json_encode($resp);
+    }
+
+    //akses
+
+    public function get_akses_all(){
+
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->getAksesAll("", "");
+
+        echo json_encode($resp);
+    }
+
+    public function add_akses(){
+
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->addAkses($this->input->post());
+
+        echo json_encode($resp);
+    }
+
+    public function get_akses_by_id(){
+
+        //print_r($this->input->post());exit;
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->getAksesById($this->input->post('id'));
+
+        echo json_encode($resp);
+
+    }
+
+    public function update_akses_by_id(){
+        //print_r($this->input->post());
+        header('Content-Type: application/json');
+
+        $id = $this->input->post('id');
+        unset($_POST['id']);
+
+        // echo $id;
+        // exit;
+
+        $resp = $this->M_curl->updateAksesById($id, $this->input->post());
+
+        echo json_encode($resp);
+    }
+
+    public function delete_akses_by_id(){
+        //print_r($this->input->post());
+        header('Content-Type: application/json');
+
+        $id = $this->input->post('id');
+
+        $resp = $this->M_curl->deleteAksesById($id);
 
         echo json_encode($resp);
     }

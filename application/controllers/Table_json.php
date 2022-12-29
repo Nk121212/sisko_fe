@@ -323,4 +323,150 @@ class Table_json extends SEKOLAH_Controller {
         echo json_encode($data, JSON_PRETTY_PRINT);
     }
 
+    public function get_kelas_all(){
+
+        $start = $this->input->post('start') ? $this->input->post('start') : 0;
+
+        $resp = $this->M_curl->getKelasAll($start, $this->limit);
+
+        $data = array(
+            //'limit' => $this->limit,
+            'real_resp' => $resp,
+            'postData' => $this->input->post(),
+            'recordsTotal'=> $resp['total_record'],
+            'recordsFiltered'=> $resp['total_record'],
+            'data'=>array()
+        );
+        
+        $i=1+(integer)$this->input->post('start');
+
+        foreach($resp['data'] as $res){
+
+            $data['data'][] = array(
+                'no' => $i,
+                'id'=> $res['id'],
+                'kelas'=> strtoupper($res['kelas']),
+                'action' => '
+                    <a class="btn btn-warning edit" data-id="'.$res['id'].'"><i class="fas fa-edit"></i></a>
+                    <a class="btn btn-danger delete" data-id="'.$res['id'].'"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                '
+            );
+            
+            $i++;
+        }
+
+        echo json_encode($data, JSON_PRETTY_PRINT);
+    }
+
+    public function get_tingkat_all(){
+
+        $start = $this->input->post('start') ? $this->input->post('start') : 0;
+
+        $resp = $this->M_curl->getTingkatAll($start, $this->limit);
+
+        $data = array(
+            //'limit' => $this->limit,
+            'real_resp' => $resp,
+            'postData' => $this->input->post(),
+            'recordsTotal'=> $resp['total_record'],
+            'recordsFiltered'=> $resp['total_record'],
+            'data'=>array()
+        );
+        
+        $i=1+(integer)$this->input->post('start');
+
+        foreach($resp['data'] as $res){
+
+            $data['data'][] = array(
+                'no' => $i,
+                'id'=> $res['id'],
+                'tingkat'=> strtoupper($res['tingkat']),
+                'action' => '
+                    <a class="btn btn-warning edit" data-id="'.$res['id'].'"><i class="fas fa-edit"></i></a>
+                    <a class="btn btn-danger delete" data-id="'.$res['id'].'"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                '
+            );
+            
+            $i++;
+        }
+
+        echo json_encode($data, JSON_PRETTY_PRINT);
+    }
+
+    public function get_menu_all(){
+
+        $start = $this->input->post('start') ? $this->input->post('start') : 0;
+
+        $resp = $this->M_curl->getMenuAll($start, $this->limit);
+
+        $data = array(
+            //'limit' => $this->limit,
+            'real_resp' => $resp,
+            'postData' => $this->input->post(),
+            'recordsTotal'=> $resp['total_record'],
+            'recordsFiltered'=> $resp['total_record'],
+            'data'=>array()
+        );
+        
+        $i=1+(integer)$this->input->post('start');
+
+        foreach($resp['data'] as $res){
+
+            $data['data'][] = array(
+                'no' => $i,
+                'id'=> $res['id'],
+                'menu'=> $res['menu'],
+                'class'=> $res['class'],
+                'href'=> $res['href'],
+                'controller'=> $res['controller'],
+                'function'=> $res['function'],
+                'action' => '
+                    <a class="btn btn-warning edit" data-id="'.$res['id'].'"><i class="fas fa-edit"></i></a>
+                    <a class="btn btn-danger delete" data-id="'.$res['id'].'"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                '
+            );
+            
+            $i++;
+        }
+
+        echo json_encode($data, JSON_PRETTY_PRINT);
+    }
+
+    public function get_akses_all(){
+
+        $start = $this->input->post('start') ? $this->input->post('start') : 0;
+
+        $resp = $this->M_curl->getAksesAll($start, $this->limit);
+
+        $data = array(
+            //'limit' => $this->limit,
+            'real_resp' => $resp,
+            'postData' => $this->input->post(),
+            'recordsTotal'=> $resp['total_record'],
+            'recordsFiltered'=> $resp['total_record'],
+            'data'=>array()
+        );
+        
+        $i=1+(integer)$this->input->post('start');
+
+        foreach($resp['data'] as $res){
+
+            $data['data'][] = array(
+                'no' => $i,
+                'menu'=> $res['menu'],
+                'role'=> $res['nama_role'],
+                'keterangan'=> $res['keterangan'],
+                'status'=> $res['status'],
+                'action' => '
+                    <a class="btn btn-warning edit" data-id="'.$res['id_menu'].'"><i class="fas fa-edit"></i></a>
+                    <a class="btn btn-danger delete" data-id="'.$res['id_menu'].'"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                '
+            );
+            
+            $i++;
+        }
+
+        echo json_encode($data, JSON_PRETTY_PRINT);
+    }
+
 }

@@ -4,14 +4,18 @@
     <div class="card" style="width: 100%;">
         <div class="card-body">
             <div class="col-sm-12 text-right">
-                <button class="btn btn-primary" data-toggle="modal" data-target="#modalTingkat"><i class="fa fa-plus" aria-hidden="true"></i> <?=$breadcrumb_2?></button>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#modalMenu"><i class="fa fa-plus" aria-hidden="true"></i> <?=$breadcrumb_2?></button>
             </div>
             <div class="col-sm-12 table-responsive NILAI">
-                <table class="table table-bordered text-center" id="tblTingkat">
+                <table class="table table-bordered text-center" id="tblMenu">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Tingkat</th>
+                            <th>Menu</th>
+                            <th>Class</th>
+                            <th>Href</th>
+                            <th>Controller</th>
+                            <th>Function</th>
                             <th>Action</th>
                     </thead>
                     <tbody>
@@ -22,8 +26,8 @@
     </div>
 </div>
 
-<div class="modal fade" tabindex="-1" role="dialog" id="modalTingkat">
-    <div class="modal-dialog modal-sm" role="document">
+<div class="modal fade" tabindex="-1" role="dialog" id="modalMenu">
+    <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Modal <?=$breadcrumb_2?></h5>
@@ -32,15 +36,35 @@
                 </button>
             </div>
 
-            <form id="frmAddTingkat">  
+            <form id="frmAddMenu">  
                 <div class="modal-body">
                     
-                    <div class="col-sm-12 row">
+                    <div class="row">
                         
                         
-                        <div class="form-group col-sm-12">
-                            <label for="tingkat">Tingkat</label>
-                            <input type="text" class="form-control" id="tingkat" name="tingkat">
+                        <div class="form-group col-sm-6">
+                            <label for="menu">Menu</label>
+                            <input type="text" class="form-control" id="menu" name="menu">
+                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="class">Class</label>
+                            <input type="text" class="form-control" id="class" name="class">
+                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="href">Href</label>
+                            <input type="text" class="form-control" id="href" name="href">
+                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="controller">Controller</label>
+                            <input type="text" class="form-control" id="controller" name="controller">
+                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="function">Function</label>
+                            <input type="text" class="form-control" id="function" name="function">
                             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                         </div>
                         
@@ -56,8 +80,8 @@
     </div>
 </div>
 
-<div class="modal fade" tabindex="-1" role="dialog" id="modalTingkatUpdate">
-    <div class="modal-dialog modal-sm" role="document">
+<div class="modal fade" tabindex="-1" role="dialog" id="modalMenuUpdate">
+    <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Modal <?=$breadcrumb_2?></h5>
@@ -66,15 +90,36 @@
                 </button>
             </div>
 
-            <form id="frmUpdateTingkat">  
+            <form id="frmUpdateMenu">  
                 <div class="modal-body up_mod">
                     
-                    <div class="col-sm-12 row">
+                    <div class="row">
                         
                         <input type="hidden" id="id" name="id">
-                        <div class="form-group col-sm-12">
-                            <label for="tingkat">Tingkat</label>
-                            <input type="text" class="form-control" id="tingkat" name="tingkat">
+                        
+                        <div class="form-group col-sm-6">
+                            <label for="menu">Menu</label>
+                            <input type="text" class="form-control" id="menu" name="menu">
+                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="class">Class</label>
+                            <input type="text" class="form-control" id="class" name="class">
+                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="href">Href</label>
+                            <input type="text" class="form-control" id="href" name="href">
+                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="controller">Controller</label>
+                            <input type="text" class="form-control" id="controller" name="controller">
+                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="function">Function</label>
+                            <input type="text" class="form-control" id="function" name="function">
                             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                         </div>
                         
@@ -97,10 +142,10 @@
 <script>
     $(document).ready(function(){
 
-        var dataTable = $('#tblTingkat').DataTable( {
+        var dataTable = $('#tblMenu').DataTable( {
 
             ajax: {
-                url: "<?=base_url()?>getTingkatAll",
+                url: "<?=base_url()?>getMenuAll",
                 data: function(data){
                     //data.search.nik = $("#nik_used").val();
                 },
@@ -126,19 +171,23 @@
             serverMethod: 'post',
             columns: [
                 {data: "no", orderable:false, width: "30px", className: "dt-body-center"},
-                {data: "tingkat", orderable:false},
+                {data: "menu", orderable:false},
+                {data: "class", orderable:false},
+                {data: "href", orderable:false},
+                {data: "controller", orderable:false},
+                {data: "function", orderable:false},
                 {data: "action", orderable:false}
             ]
         });
 
-        $('form#frmAddTingkat').submit(function(e){
+        $('form#frmAddMenu').submit(function(e){
 
             e.preventDefault();
 
             var formData = new FormData(this);
 
             $.ajax({
-                url: '<?=base_url()?>tingkat/add',
+                url: '<?=base_url()?>menu/add',
                 //startTime: performance.now(),
                 type: 'POST',
                 data: formData,
@@ -151,8 +200,8 @@
                 success: function (data) {
 
                     console.log(data);
-                    var text = (data.code == '201') ? 'Insert Tingkat Sukses !' : 'Insert Tingkat Failed'; 
-                    swal_response_insert(data.code, 'Insert Guru', text, 'modalTingkat');
+                    var text = (data.code == '201') ? 'Insert Menu Sukses !' : 'Insert Menu Failed'; 
+                    swal_response_insert(data.code, 'Insert Menu', text, 'modalMenu');
                     if(data.code == '201'){
                         dataTable.draw();
                     }
@@ -165,13 +214,13 @@
             
         });
 
-        $('#tblTingkat tbody').on('click', 'tr td a.edit', function () {
+        $('#tblMenu tbody').on('click', 'tr td a.edit', function () {
 
-            $('#frmAddTingkat')[0].reset();
+            $('#frmAddMenu')[0].reset();
 
             var id = $(this).attr('data-id');
 
-            $.post("<?=base_url()?>tingkat/get/id",
+            $.post("<?=base_url()?>menu/get/id",
             {
                 id: id
             },
@@ -184,7 +233,7 @@
 
                     $('.up_mod input#'+k).val(v);
                     $('.up_mod textarea#'+k).text(v);
-                    $('#modalTingkatUpdate').modal('show');
+                    $('#modalMenuUpdate').modal('show');
 
 
                 });
@@ -195,14 +244,14 @@
 
         });
 
-        $('form#frmUpdateTingkat').submit(function(e){
+        $('form#frmUpdateMenu').submit(function(e){
 
             e.preventDefault();
 
             var formData = new FormData(this);
 
             $.ajax({
-                url: '<?=base_url()?>tingkat/update/id',
+                url: '<?=base_url()?>menu/update/id',
                 //startTime: performance.now(),
                 type: 'POST',
                 data: formData,
@@ -215,8 +264,8 @@
                 success: function (data) {
 
                     console.log(data);
-                    var text = (data.code == '200') ? 'Update Tingkat Sukses !' : 'Update Tingkat Failed'; 
-                    swal_response_update(data.code, 'Update Guru', text, 'modalTingkatUpdate');
+                    var text = (data.code == '200') ? 'Update Menu Sukses !' : 'Update Menu Failed'; 
+                    swal_response_update(data.code, 'Update Menu', text, 'modalMenuUpdate');
                     if(data.code == '200'){
                         dataTable.draw();
                     }
@@ -229,20 +278,20 @@
             
         });
 
-        $('#tblTingkat tbody').on('click', 'tr td a.delete', function () {
+        $('#tblMenu tbody').on('click', 'tr td a.delete', function () {
 
-            $('#frmAddTingkat')[0].reset();
+            $('#frmAddMenu')[0].reset();
 
             var id = $(this).attr('data-id');
 
-            $.post("<?=base_url()?>tingkat/delete/id",
+            $.post("<?=base_url()?>menu/delete/id",
             {
                 id: id
             },
             function(data){
                 console.log(data);
-                var text = (data.code == '200') ? 'Delete Tingkat Sukses !' : 'Delete Tingkat Failed'; 
-                swal_response_delete(data.code, 'Delete Guru', text);
+                var text = (data.code == '200') ? 'Delete Menu Sukses !' : 'Delete Menu Failed'; 
+                swal_response_delete(data.code, 'Delete Menu', text);
                 if(data.code == '200'){
                     dataTable.draw();
                 }

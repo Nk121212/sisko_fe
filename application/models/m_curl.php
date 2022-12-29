@@ -445,6 +445,92 @@
             return json_decode($res, true);
 
         }
+
+        //crud menu
+
+        public function getMenuAll($start, $limit, $orderBy="", $orderType=""){
+            
+            $res = cURL(getConfig('api_url').'get/menu/all?start='.$start.'&limit='.$limit.'&order_by='.$orderBy.'&order_type='.$orderType);
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function addMenu($body){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'addmenu', $body, 'post', $header);
+
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function getMenuById($id){
+            
+            $res = cURL(getConfig('api_url').'get/menu/byId?id='.$id);
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function updateMenuById($id, $body){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'patch/menu/byId/'.$id, $body, 'custom', $header, 'PATCH');
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function deleteMenuById($id){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'delete/menu/byId/'.$id, array(), 'custom', $header, 'DELETE');
+            return json_decode($res, true);
+        }
+
+        //crud akses
+
+        public function getAksesAll($start, $limit, $orderBy="", $orderType=""){
+            
+            $res = cURL(getConfig('api_url').'get/akses/all?start='.$start.'&limit='.$limit.'&order_by='.$orderBy.'&order_type='.$orderType);
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function addAkses($body){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'addakses', $body, 'post', $header);
+
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function getAksesById($id){
+            
+            $res = cURL(getConfig('api_url').'get/akses/byId?id='.$id);
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function updateAksesById($id, $body){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'patch/akses/byId/'.$id, $body, 'custom', $header, 'PATCH');
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function deleteAksesById($id){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'delete/akses/byId/'.$id, array(), 'custom', $header, 'DELETE');
+            return json_decode($res, true);
+        }
         
     }
 
