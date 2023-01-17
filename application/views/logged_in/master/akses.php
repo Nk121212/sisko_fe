@@ -3,6 +3,11 @@
 <div class="col-sm-12">
     <div class="card" style="width: 100%;">
         <div class="card-body">
+            
+            <div id="alert-show">
+
+            </div>
+
             <div class="col-sm-12 text-right">
                 <button class="btn btn-primary" data-toggle="modal" data-target="#modalAkses"><i class="fa fa-plus" aria-hidden="true"></i> <?=$breadcrumb_2?></button>
             </div>
@@ -217,6 +222,7 @@
                     swal_response_insert(data.code, 'Insert Akses', text, 'modalAkses');
                     if(data.code == '201'){
                         dataTable.draw();
+                        $('div#alert-show').append('<div class="alert alert-primary" role="alert"><?=$this->session->flashdata('info');?></div>');
                     }
 
                 },
@@ -283,6 +289,7 @@
                     swal_response_update(data.code, 'Update Akses', text, 'modalAksesUpdate');
                     if(data.code == '200'){
                         dataTable.draw();
+                        $('div#alert-show').append('<div class="alert alert-primary" role="alert">'+data.alert+'</div>');
                     }
 
                 },

@@ -58,7 +58,6 @@ $route['login/action'] = 'auth/login';
 $route['logout'] = 'auth/logout';
 $route['dashboard'] = 'home/dashboard';
 
-
 $route['guru/page'] = 'master/guru_page';
 $route['getGuruAll'] = 'table_json/get_guru_all';
 $route['get_guru_all'] = 'master/get_guru_all'; //dipakai untuk global ex : select option
@@ -155,3 +154,11 @@ $route['nilai/page'] = 'transaksi/nilai_page';
 $route['nilai/add'] = 'transaksi/add_nilai';
 $route['getNilaiByNis'] = 'table_json/get_nilai_by_nis';
 $route['getAbsenByNis'] = 'table_json/get_absen_by_nis';
+
+$route['mapping_murid/page'] = 'master/mapping_murid_page';
+$route['getMappingMuridAll'] = 'table_json/get_mapping_murid_all';
+$route['get_mapping_murid_all'] = 'master/get_mapping_murid_all'; //dipakai untuk global ex : select option
+$route['mapping_murid/add'] = 'master/add_mapping_murid';
+$route['mapping_murid/get/id'] = 'master/get_mapping_murid_by_id';
+$route['mapping_murid/update/id'] = 'master/update_mapping_murid_by_id';
+$route['mapping_murid/delete/id'] = 'master/delete_mapping_murid_by_id';

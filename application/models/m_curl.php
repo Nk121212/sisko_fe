@@ -552,6 +552,49 @@
             $res = cURL(getConfig('api_url').'delete/akses/byId/'.$id, array(), 'custom', $header, 'DELETE');
             return json_decode($res, true);
         }
+
+        //crud mapping murid
+
+        public function getMappingMuridAll($start, $limit, $orderBy="", $orderType=""){
+            
+            $res = cURL(getConfig('api_url').'get/MapingMuridByUser/all?start='.$start.'&limit='.$limit.'&order_by='.$orderBy.'&order_type='.$orderType);
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function addMappingMurid($body){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'addMapingMuridByUser', $body, 'post', $header);
+
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function getMappingMuridById($id){
+            
+            $res = cURL(getConfig('api_url').'get/MapingMuridByUser/byId?id='.$id);
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function updateMappingMuridById($id, $body){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'patch/MapingMuridByUser/byId/'.$id, $body, 'custom', $header, 'PATCH');
+            //return $res;
+            return json_decode($res, true);
+        }
+
+        public function deleteMappingMuridById($id){
+
+            $header = array();
+            
+            $res = cURL(getConfig('api_url').'delete/MapingMuridByUser/byId/'.$id, array(), 'custom', $header, 'DELETE');
+            return json_decode($res, true);
+        }
         
     }
 

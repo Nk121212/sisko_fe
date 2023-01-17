@@ -156,6 +156,24 @@ class Master extends SEKOLAH_Controller {
         $this->load->view("main", $data);
     }
 
+    public function mapping_murid_page(){
+
+        $users = $this->M_curl->getUserAll("", "");
+        $murid = $this->M_curl->getMuridAll("", "");
+
+        $data = array(
+            'page' => 'logged_in/master/mapping_murid',
+            'title' => 'Master Mapping Murid',
+            'breadcrumb_1' => "Master",
+            'breadcrumb_2' => "Mapping Murid",
+            'breadcrumb_3' => "",
+            'list_users' => $users['data'],
+            'list_murid' => $murid['data'],
+        );
+
+        $this->load->view("main", $data);
+    }
+
     
 
     //guru 
@@ -877,6 +895,9 @@ class Master extends SEKOLAH_Controller {
         header('Content-Type: application/json');
 
         $resp = $this->M_curl->addAkses($this->input->post());
+        if($resp['code'] == '201'){
+            $resp['alert'] = 'anda harus login kembali untuk get menu dengan akses baru, <a href="'.base_url().'logout">logout</a>';
+        }
 
         echo json_encode($resp);
     }
@@ -903,6 +924,12 @@ class Master extends SEKOLAH_Controller {
         // exit;
 
         $resp = $this->M_curl->updateAksesById($id, $this->input->post());
+        if($resp['code'] == '200'){
+            $resp['alert'] = 'anda harus login kembali untuk get menu dengan akses baru, <a href="'.base_url().'logout">logout</a>';
+        }
+
+        // print_r($resp);
+        // exit;
 
         echo json_encode($resp);
     }
@@ -914,6 +941,69 @@ class Master extends SEKOLAH_Controller {
         $id = $this->input->post('id');
 
         $resp = $this->M_curl->deleteAksesById($id);
+        if($resp['code'] == '200'){
+            $resp['alert'] = 'anda harus login kembali untuk get menu dengan akses baru, <a href="'.base_url().'logout">logout</a>';
+        }
+
+        echo json_encode($resp);
+    }
+
+    //mapping murid
+
+    public function get_mapping_murid_all(){
+
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->getMappingMuridAll("", "");
+
+        echo json_encode($resp);
+    }
+
+    public function add_mapping_murid(){
+
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->addMappingMurid($this->input->post());
+
+        echo json_encode($resp);
+    }
+
+    public function get_mapping_murid_by_id(){
+
+        //print_r($this->input->post());exit;
+        header('Content-Type: application/json');
+
+        $resp = $this->M_curl->getMappingMuridById($this->input->post('id'));
+
+        echo json_encode($resp);
+
+    }
+
+    public function update_mapping_murid_by_id(){
+        //print_r($this->input->post());
+        header('Content-Type: application/json');
+
+        $id = $this->input->post('id');
+        unset($_POST['id']);
+
+        // echo $id;
+        // exit;
+
+        $resp = $this->M_curl->updateMappingMuridById($id, $this->input->post());
+
+        // print_r($resp);
+        // exit;
+
+        echo json_encode($resp);
+    }
+
+    public function delete_mapping_murid_by_id(){
+        //print_r($this->input->post());
+        header('Content-Type: application/json');
+
+        $id = $this->input->post('id');
+
+        $resp = $this->M_curl->deleteMappingMuridById($id);
 
         echo json_encode($resp);
     }
