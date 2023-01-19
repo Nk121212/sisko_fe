@@ -502,7 +502,7 @@ class Master extends SEKOLAH_Controller {
 
             // $up_resp = $this->upload->display_errors();
             $postData = $this->input->post();
-            $resp = $this->M_curl->addMurid($id, $postData);
+            $resp = $this->M_curl->addMurid($postData);
             $resp['message'] = $this->upload->display_errors();
 
         } else {
